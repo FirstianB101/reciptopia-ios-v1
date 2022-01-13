@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A54AE8082790430F00A19FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54AE8072790430F00A19FAC /* AppDelegate.swift */; };
+		A54AE80A2790430F00A19FAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54AE8092790430F00A19FAC /* SceneDelegate.swift */; };
+		A54AE80C2790430F00A19FAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54AE80B2790430F00A19FAC /* ViewController.swift */; };
+		A54AE80F2790430F00A19FAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54AE80D2790430F00A19FAC /* Main.storyboard */; };
+		A54AE8112790430F00A19FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54AE8102790430F00A19FAC /* Assets.xcassets */; };
+		A54AE8142790430F00A19FAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54AE8122790430F00A19FAC /* LaunchScreen.storyboard */; };
+		A54AE81F2790430F00A19FAC /* ReciptopiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54AE81E2790430F00A19FAC /* ReciptopiaTests.swift */; };
+		A54AE8292790430F00A19FAC /* ReciptopiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54AE8282790430F00A19FAC /* ReciptopiaUITests.swift */; };
+		A54AE82B2790430F00A19FAC /* ReciptopiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54AE82A2790430F00A19FAC /* ReciptopiaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A54AE81B2790430F00A19FAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A54AE7FC2790430E00A19FAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A54AE8032790430F00A19FAC;
+			remoteInfo = Reciptopia;
+		};
+		A54AE8252790430F00A19FAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A54AE7FC2790430E00A19FAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A54AE8032790430F00A19FAC;
+			remoteInfo = Reciptopia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A54AE8042790430F00A19FAC /* Reciptopia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciptopia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54AE8072790430F00A19FAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A54AE8092790430F00A19FAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A54AE80B2790430F00A19FAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A54AE80E2790430F00A19FAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A54AE8102790430F00A19FAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A54AE8132790430F00A19FAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A54AE8152790430F00A19FAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A54AE81A2790430F00A19FAC /* ReciptopiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReciptopiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54AE81E2790430F00A19FAC /* ReciptopiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciptopiaTests.swift; sourceTree = "<group>"; };
+		A54AE8242790430F00A19FAC /* ReciptopiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReciptopiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54AE8282790430F00A19FAC /* ReciptopiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciptopiaUITests.swift; sourceTree = "<group>"; };
+		A54AE82A2790430F00A19FAC /* ReciptopiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciptopiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A54AE8012790430F00A19FAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A54AE8172790430F00A19FAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A54AE8212790430F00A19FAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A54AE7FB2790430E00A19FAC = {
+			isa = PBXGroup;
+			children = (
+				A54AE8062790430F00A19FAC /* Reciptopia */,
+				A54AE81D2790430F00A19FAC /* ReciptopiaTests */,
+				A54AE8272790430F00A19FAC /* ReciptopiaUITests */,
+				A54AE8052790430F00A19FAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A54AE8052790430F00A19FAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A54AE8042790430F00A19FAC /* Reciptopia.app */,
+				A54AE81A2790430F00A19FAC /* ReciptopiaTests.xctest */,
+				A54AE8242790430F00A19FAC /* ReciptopiaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A54AE8062790430F00A19FAC /* Reciptopia */ = {
+			isa = PBXGroup;
+			children = (
+				A54AE8072790430F00A19FAC /* AppDelegate.swift */,
+				A54AE8092790430F00A19FAC /* SceneDelegate.swift */,
+				A54AE80B2790430F00A19FAC /* ViewController.swift */,
+				A54AE80D2790430F00A19FAC /* Main.storyboard */,
+				A54AE8102790430F00A19FAC /* Assets.xcassets */,
+				A54AE8122790430F00A19FAC /* LaunchScreen.storyboard */,
+				A54AE8152790430F00A19FAC /* Info.plist */,
+			);
+			path = Reciptopia;
+			sourceTree = "<group>";
+		};
+		A54AE81D2790430F00A19FAC /* ReciptopiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				A54AE81E2790430F00A19FAC /* ReciptopiaTests.swift */,
+			);
+			path = ReciptopiaTests;
+			sourceTree = "<group>";
+		};
+		A54AE8272790430F00A19FAC /* ReciptopiaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A54AE8282790430F00A19FAC /* ReciptopiaUITests.swift */,
+				A54AE82A2790430F00A19FAC /* ReciptopiaUITestsLaunchTests.swift */,
+			);
+			path = ReciptopiaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A54AE8032790430F00A19FAC /* Reciptopia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A54AE82E2790430F00A19FAC /* Build configuration list for PBXNativeTarget "Reciptopia" */;
+			buildPhases = (
+				A54AE8002790430F00A19FAC /* Sources */,
+				A54AE8012790430F00A19FAC /* Frameworks */,
+				A54AE8022790430F00A19FAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Reciptopia;
+			productName = Reciptopia;
+			productReference = A54AE8042790430F00A19FAC /* Reciptopia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A54AE8192790430F00A19FAC /* ReciptopiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A54AE8312790430F00A19FAC /* Build configuration list for PBXNativeTarget "ReciptopiaTests" */;
+			buildPhases = (
+				A54AE8162790430F00A19FAC /* Sources */,
+				A54AE8172790430F00A19FAC /* Frameworks */,
+				A54AE8182790430F00A19FAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A54AE81C2790430F00A19FAC /* PBXTargetDependency */,
+			);
+			name = ReciptopiaTests;
+			productName = ReciptopiaTests;
+			productReference = A54AE81A2790430F00A19FAC /* ReciptopiaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A54AE8232790430F00A19FAC /* ReciptopiaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A54AE8342790430F00A19FAC /* Build configuration list for PBXNativeTarget "ReciptopiaUITests" */;
+			buildPhases = (
+				A54AE8202790430F00A19FAC /* Sources */,
+				A54AE8212790430F00A19FAC /* Frameworks */,
+				A54AE8222790430F00A19FAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A54AE8262790430F00A19FAC /* PBXTargetDependency */,
+			);
+			name = ReciptopiaUITests;
+			productName = ReciptopiaUITests;
+			productReference = A54AE8242790430F00A19FAC /* ReciptopiaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A54AE7FC2790430E00A19FAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					A54AE8032790430F00A19FAC = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					A54AE8192790430F00A19FAC = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = A54AE8032790430F00A19FAC;
+					};
+					A54AE8232790430F00A19FAC = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = A54AE8032790430F00A19FAC;
+					};
+				};
+			};
+			buildConfigurationList = A54AE7FF2790430E00A19FAC /* Build configuration list for PBXProject "Reciptopia" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A54AE7FB2790430E00A19FAC;
+			productRefGroup = A54AE8052790430F00A19FAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A54AE8032790430F00A19FAC /* Reciptopia */,
+				A54AE8192790430F00A19FAC /* ReciptopiaTests */,
+				A54AE8232790430F00A19FAC /* ReciptopiaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A54AE8022790430F00A19FAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54AE8142790430F00A19FAC /* LaunchScreen.storyboard in Resources */,
+				A54AE8112790430F00A19FAC /* Assets.xcassets in Resources */,
+				A54AE80F2790430F00A19FAC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A54AE8182790430F00A19FAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A54AE8222790430F00A19FAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A54AE8002790430F00A19FAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54AE80C2790430F00A19FAC /* ViewController.swift in Sources */,
+				A54AE8082790430F00A19FAC /* AppDelegate.swift in Sources */,
+				A54AE80A2790430F00A19FAC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A54AE8162790430F00A19FAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54AE81F2790430F00A19FAC /* ReciptopiaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A54AE8202790430F00A19FAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54AE82B2790430F00A19FAC /* ReciptopiaUITestsLaunchTests.swift in Sources */,
+				A54AE8292790430F00A19FAC /* ReciptopiaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A54AE81C2790430F00A19FAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A54AE8032790430F00A19FAC /* Reciptopia */;
+			targetProxy = A54AE81B2790430F00A19FAC /* PBXContainerItemProxy */;
+		};
+		A54AE8262790430F00A19FAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A54AE8032790430F00A19FAC /* Reciptopia */;
+			targetProxy = A54AE8252790430F00A19FAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A54AE80D2790430F00A19FAC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A54AE80E2790430F00A19FAC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A54AE8122790430F00A19FAC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A54AE8132790430F00A19FAC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A54AE82C2790430F00A19FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A54AE82D2790430F00A19FAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A54AE82F2790430F00A19FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GTB6BR222W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Reciptopia/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Harry.Reciptopia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A54AE8302790430F00A19FAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GTB6BR222W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Reciptopia/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Harry.Reciptopia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A54AE8322790430F00A19FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GTB6BR222W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Harry.ReciptopiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciptopia.app/Reciptopia";
+			};
+			name = Debug;
+		};
+		A54AE8332790430F00A19FAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GTB6BR222W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Harry.ReciptopiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciptopia.app/Reciptopia";
+			};
+			name = Release;
+		};
+		A54AE8352790430F00A19FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GTB6BR222W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Harry.ReciptopiaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Reciptopia;
+			};
+			name = Debug;
+		};
+		A54AE8362790430F00A19FAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GTB6BR222W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Harry.ReciptopiaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Reciptopia;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A54AE7FF2790430E00A19FAC /* Build configuration list for PBXProject "Reciptopia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A54AE82C2790430F00A19FAC /* Debug */,
+				A54AE82D2790430F00A19FAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A54AE82E2790430F00A19FAC /* Build configuration list for PBXNativeTarget "Reciptopia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A54AE82F2790430F00A19FAC /* Debug */,
+				A54AE8302790430F00A19FAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A54AE8312790430F00A19FAC /* Build configuration list for PBXNativeTarget "ReciptopiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A54AE8322790430F00A19FAC /* Debug */,
+				A54AE8332790430F00A19FAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A54AE8342790430F00A19FAC /* Build configuration list for PBXNativeTarget "ReciptopiaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A54AE8352790430F00A19FAC /* Debug */,
+				A54AE8362790430F00A19FAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A54AE7FC2790430E00A19FAC /* Project object */;
+}
