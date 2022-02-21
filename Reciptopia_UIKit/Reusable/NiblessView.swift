@@ -18,7 +18,7 @@ open class NiblessView: UIView {
     super.init(frame: frame)
   }
   
-  public override func didMoveToWindow() {
+  open override func didMoveToWindow() {
     super.didMoveToWindow()
     backgroundColor = .white
   }
