@@ -23,6 +23,9 @@
 		A542AD7727C38AE200899B89 /* TokenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542AD7627C38AE200899B89 /* TokenUtil.swift */; };
 		A542AD7927C38B1500899B89 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542AD7827C38B1500899B89 /* Token.swift */; };
 		A542AD7F27C3B8A600899B89 /* PictureIngredientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542AD7E27C3B8A600899B89 /* PictureIngredientRepository.swift */; };
+		A5735B0527C3FBA5003D6C30 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5735B0427C3FBA5003D6C30 /* UIButtonExtension.swift */; };
+		A582C14527C4023E005B3469 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582C14427C4023E005B3469 /* UIColorExtension.swift */; };
+		A582C14827C40587005B3469 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A582C14727C40587005B3469 /* SnapKit */; };
 		A5C3A3D227C3F6F100A2C428 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D127C3F6F100A2C428 /* UserSession.swift */; };
 		A5C3A3D527C3F81400A2C428 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */; };
 		A5D0AAAB27C361B3003E8681 /* PictureIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */; };
@@ -96,6 +99,8 @@
 		A542AD7627C38AE200899B89 /* TokenUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtil.swift; sourceTree = "<group>"; };
 		A542AD7827C38B1500899B89 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		A542AD7E27C3B8A600899B89 /* PictureIngredientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureIngredientRepository.swift; sourceTree = "<group>"; };
+		A5735B0427C3FBA5003D6C30 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		A582C14427C4023E005B3469 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A5C3A3D127C3F6F100A2C428 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureIngredientViewModel.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A542AD6027C3728E00899B89 /* PromiseKit in Frameworks */,
+				A582C14827C40587005B3469 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +221,15 @@
 				A5202FA427C3D77D003B6F3B /* DefaultPictureIngredientRepository.swift */,
 			);
 			path = PictureIngredient;
+			sourceTree = "<group>";
+		};
+		A582C14327C40227005B3469 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A5735B0427C3FBA5003D6C30 /* UIButtonExtension.swift */,
+				A582C14427C4023E005B3469 /* UIColorExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		A5C3A3D327C3F7E000A2C428 /* Profile */ = {
@@ -333,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F6A08A27C2AF1F009CDB05 /* Reciptopia_UIKit.h */,
+				A582C14327C40227005B3469 /* Extension */,
 				A5D0AAA027C35DF3003E8681 /* Reusable */,
 			);
 			path = Reciptopia_UIKit;
@@ -419,6 +435,7 @@
 			name = Reciptopia_iOS;
 			packageProductDependencies = (
 				A542AD5F27C3728E00899B89 /* PromiseKit */,
+				A582C14727C40587005B3469 /* SnapKit */,
 			);
 			productName = Reciptopia_iOS;
 			productReference = A5F6A07827C2AF09009CDB05 /* Reciptopia_iOS.framework */;
@@ -504,6 +521,7 @@
 			mainGroup = A5F69F1C27C29F63009CDB05;
 			packageReferences = (
 				A542AD5C27C3727100899B89 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				A582C14627C40587005B3469 /* XCRemoteSwiftPackageReference "snapkit" */,
 			);
 			productRefGroup = A5F69F2627C29F63009CDB05 /* Products */;
 			projectDirPath = "";
@@ -575,6 +593,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5D0AAB827C36E09003E8681 /* NiblessViewController.swift in Sources */,
+				A5735B0527C3FBA5003D6C30 /* UIButtonExtension.swift in Sources */,
+				A582C14527C4023E005B3469 /* UIColorExtension.swift in Sources */,
 				A542AD6627C3748200899B89 /* NiblessView.swift in Sources */,
 				A5202FAF27C3DED6003B6F3B /* AlertMessagePresent.swift in Sources */,
 			);
@@ -743,6 +763,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1065,6 +1086,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		A582C14627C40587005B3469 /* XCRemoteSwiftPackageReference "snapkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/snapkit/snapkit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1087,6 +1116,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A542AD5C27C3727100899B89 /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
+		};
+		A582C14727C40587005B3469 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A582C14627C40587005B3469 /* XCRemoteSwiftPackageReference "snapkit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
