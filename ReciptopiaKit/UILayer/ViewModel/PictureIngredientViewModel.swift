@@ -32,6 +32,8 @@ public class PictureIngredientViewModel {
     return 10 - pictureIngredients.value.count
   }
   
+  private var waitForDeletionIndices = Set<Int>()
+  
   // MARK: - Methods
   public init(pictureIngredientRepository: PictureIngredientRepository) {
     self.pictureIngredientRepository = pictureIngredientRepository
@@ -42,6 +44,13 @@ public class PictureIngredientViewModel {
     pictureIngredientRepository.analyze(pictures)
       .done(presentCheckIngredients(_:))
       .catch(presentErrorMessage(_:))
+  }
+  
+  @objc public func deleteIngredients() {
+    waitForDeletionIndices.sorted(by: >).forEach { index in
+      pictureIngredients.value.remove(at: index)
+    }
+    waitForDeletionIndices.removeAll()
   }
   
   private func presentCheckIngredients(_ ingredients: [Ingredient]) {
@@ -70,5 +79,15 @@ public class PictureIngredientViewModel {
   
   public func addPicture(_ picture: Data) {
     pictureIngredients.value.append(picture)
+  }
+  
+  public func addDeletion(at index: Int) {
+    waitForDeletionIndices.insert(index)
+  }
+  
+  public func removeDeletion(at index: Int) {
+    if waitForDeletionIndices.contains(index) {
+      waitForDeletionIndices.remove(index)
+    }
   }
 }
