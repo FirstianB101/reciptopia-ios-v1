@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(CFBundleDevelopmentRegion)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>사용자의 카메라에서 사진을 촬영합니다.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>사용자의 앨범에서 사진을 선택합니다.</string>
+</dict>
 </plist>
