@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import Reciptopia_UIKit
+
+public final class ProfileViewController: NiblessViewController {
+  
+}
