@@ -14,6 +14,7 @@ public enum PictureIngredientAction {
   case managePicture
   case notification
   case community
+  case photoAlbum
   case checkIngredients(ingredients: [Ingredient])
 }
 
@@ -23,16 +24,20 @@ public class PictureIngredientViewModel {
   let pictureIngredientRepository: PictureIngredientRepository
   
   // MARK: - Properties
-  let action = PassthroughSubject<PictureIngredientAction, Never>()
-  let alertPublisher = PassthroughSubject<AlertMessage, Never>()
-  let pictureIngredients = CurrentValueSubject<[Data], Never>([])
+  public let action = PassthroughSubject<PictureIngredientAction, Never>()
+  public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
+  public let pictureIngredients = CurrentValueSubject<[Data], Never>([])
+  
+  public var remainingPictureCount: Int {
+    return 10 - pictureIngredients.value.count
+  }
   
   // MARK: - Methods
   public init(pictureIngredientRepository: PictureIngredientRepository) {
     self.pictureIngredientRepository = pictureIngredientRepository
   }
   
-  @objc public func analyzePictures() {
+  @objc public func analyzeIngredients() {
     let pictures = pictureIngredients.value
     pictureIngredientRepository.analyze(pictures)
       .done(presentCheckIngredients(_:))
@@ -45,5 +50,25 @@ public class PictureIngredientViewModel {
   
   private func presentErrorMessage(_ error: Error) {
     alertPublisher.send(.makeErrorMessage())
+  }
+  
+  @objc public func presentManagePicture() {
+    action.send(.managePicture)
+  }
+  
+  @objc public func presentPhotoAlbum() {
+    action.send(.photoAlbum)
+  }
+  
+  @objc public func presentSearch() {
+    action.send(.search)
+  }
+  
+  @objc public func presentNotification() {
+    action.send(.notification)
+  }
+  
+  public func addPicture(_ picture: Data) {
+    pictureIngredients.value.append(picture)
   }
 }
