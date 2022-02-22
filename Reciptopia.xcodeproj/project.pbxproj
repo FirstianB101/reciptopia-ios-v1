@@ -31,6 +31,9 @@
 		A5CACD7827C4A2A800D5EFA4 /* BackCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */; };
 		A5CACD8027C4A44B00D5EFA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5CACD7F27C4A44B00D5EFA4 /* SnapKit */; };
 		A5CACD8327C4B29400D5EFA4 /* BSImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = A5CACD8227C4B29400D5EFA4 /* BSImagePicker */; };
+		A5CACD8927C4BD7B00D5EFA4 /* ManagePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD8827C4BD7B00D5EFA4 /* ManagePictureViewController.swift */; };
+		A5CACD8B27C4BDE200D5EFA4 /* ManagePictureRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD8A27C4BDE200D5EFA4 /* ManagePictureRootView.swift */; };
+		A5CACD8D27C4C0A800D5EFA4 /* ManagePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD8C27C4C0A800D5EFA4 /* ManagePictureCell.swift */; };
 		A5D0AAAB27C361B3003E8681 /* PictureIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */; };
 		A5D0AAB627C36DF1003E8681 /* ReciptopiaDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAB527C36DF1003E8681 /* ReciptopiaDependency.swift */; };
 		A5D0AAB827C36E09003E8681 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */; };
@@ -107,6 +110,9 @@
 		A5C3A3D127C3F6F100A2C428 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCameraView.swift; sourceTree = "<group>"; };
+		A5CACD8827C4BD7B00D5EFA4 /* ManagePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePictureViewController.swift; sourceTree = "<group>"; };
+		A5CACD8A27C4BDE200D5EFA4 /* ManagePictureRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePictureRootView.swift; sourceTree = "<group>"; };
+		A5CACD8C27C4C0A800D5EFA4 /* ManagePictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePictureCell.swift; sourceTree = "<group>"; };
 		A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureIngredientViewModel.swift; sourceTree = "<group>"; };
 		A5D0AAB527C36DF1003E8681 /* ReciptopiaDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciptopiaDependency.swift; sourceTree = "<group>"; };
 		A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +252,16 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		A5CACD8527C4BD3A00D5EFA4 /* ManagePicture */ = {
+			isa = PBXGroup;
+			children = (
+				A5CACD8827C4BD7B00D5EFA4 /* ManagePictureViewController.swift */,
+				A5CACD8A27C4BDE200D5EFA4 /* ManagePictureRootView.swift */,
+				A5CACD8C27C4C0A800D5EFA4 /* ManagePictureCell.swift */,
+			);
+			path = ManagePicture;
+			sourceTree = "<group>";
+		};
 		A5D0AAA027C35DF3003E8681 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +278,7 @@
 			children = (
 				A5D0AAB927C37158003E8681 /* PictureIngredientViewController.swift */,
 				A542AD6727C3885200899B89 /* PictureIngredientRootView.swift */,
+				A5CACD8527C4BD3A00D5EFA4 /* ManagePicture */,
 			);
 			path = PictureIngredient;
 			sourceTree = "<group>";
@@ -593,9 +610,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CACD8D27C4C0A800D5EFA4 /* ManagePictureCell.swift in Sources */,
+				A5CACD8B27C4BDE200D5EFA4 /* ManagePictureRootView.swift in Sources */,
 				A5D0AABA27C37158003E8681 /* PictureIngredientViewController.swift in Sources */,
 				A542AD6827C3885200899B89 /* PictureIngredientRootView.swift in Sources */,
 				A5C3A3D527C3F81400A2C428 /* ProfileViewController.swift in Sources */,
+				A5CACD8927C4BD7B00D5EFA4 /* ManagePictureViewController.swift in Sources */,
 				A5D0AAB627C36DF1003E8681 /* ReciptopiaDependency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,6 +744,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -781,6 +802,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
