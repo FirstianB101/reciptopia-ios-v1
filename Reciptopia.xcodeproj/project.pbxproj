@@ -28,6 +28,9 @@
 		A582C14827C40587005B3469 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A582C14727C40587005B3469 /* SnapKit */; };
 		A5C3A3D227C3F6F100A2C428 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D127C3F6F100A2C428 /* UserSession.swift */; };
 		A5C3A3D527C3F81400A2C428 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */; };
+		A5CACD7827C4A2A800D5EFA4 /* BackCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */; };
+		A5CACD8027C4A44B00D5EFA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5CACD7F27C4A44B00D5EFA4 /* SnapKit */; };
+		A5CACD8327C4B29400D5EFA4 /* BSImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = A5CACD8227C4B29400D5EFA4 /* BSImagePicker */; };
 		A5D0AAAB27C361B3003E8681 /* PictureIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */; };
 		A5D0AAB627C36DF1003E8681 /* ReciptopiaDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAB527C36DF1003E8681 /* ReciptopiaDependency.swift */; };
 		A5D0AAB827C36E09003E8681 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */; };
@@ -103,6 +106,7 @@
 		A582C14427C4023E005B3469 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A5C3A3D127C3F6F100A2C428 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCameraView.swift; sourceTree = "<group>"; };
 		A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureIngredientViewModel.swift; sourceTree = "<group>"; };
 		A5D0AAB527C36DF1003E8681 /* ReciptopiaDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciptopiaDependency.swift; sourceTree = "<group>"; };
 		A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				A542AD5E27C3727100899B89 /* PromiseKit in Frameworks */,
 				A5F6A08E27C2AF1F009CDB05 /* Reciptopia_UIKit.framework in Frameworks */,
 				A5F6A09E27C2AF2D009CDB05 /* ReciptopiaKit.framework in Frameworks */,
+				A5CACD8027C4A44B00D5EFA4 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A542AD6027C3728E00899B89 /* PromiseKit in Frameworks */,
+				A5CACD8327C4B29400D5EFA4 /* BSImagePicker in Frameworks */,
 				A582C14827C40587005B3469 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +249,7 @@
 		A5D0AAA027C35DF3003E8681 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */,
 				A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */,
 				A542AD6527C3748200899B89 /* NiblessView.swift */,
 				A5202FAE27C3DED6003B6F3B /* AlertMessagePresent.swift */,
@@ -407,6 +414,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				A5CACD7C27C4A43C00D5EFA4 /* PBXTargetDependency */,
+				A5CACD7E27C4A43C00D5EFA4 /* PBXTargetDependency */,
 				A5F6A07D27C2AF09009CDB05 /* PBXTargetDependency */,
 				A5F6A08D27C2AF1F009CDB05 /* PBXTargetDependency */,
 				A5F6A09D27C2AF2D009CDB05 /* PBXTargetDependency */,
@@ -414,6 +423,7 @@
 			name = Reciptopia;
 			packageProductDependencies = (
 				A542AD5D27C3727100899B89 /* PromiseKit */,
+				A5CACD7F27C4A44B00D5EFA4 /* SnapKit */,
 			);
 			productName = Reciptopia;
 			productReference = A5F69F2527C29F63009CDB05 /* Reciptopia.app */;
@@ -436,6 +446,7 @@
 			packageProductDependencies = (
 				A542AD5F27C3728E00899B89 /* PromiseKit */,
 				A582C14727C40587005B3469 /* SnapKit */,
+				A5CACD8227C4B29400D5EFA4 /* BSImagePicker */,
 			);
 			productName = Reciptopia_iOS;
 			productReference = A5F6A07827C2AF09009CDB05 /* Reciptopia_iOS.framework */;
@@ -522,6 +533,7 @@
 			packageReferences = (
 				A542AD5C27C3727100899B89 /* XCRemoteSwiftPackageReference "PromiseKit" */,
 				A582C14627C40587005B3469 /* XCRemoteSwiftPackageReference "snapkit" */,
+				A5CACD8127C4B29400D5EFA4 /* XCRemoteSwiftPackageReference "BSImagePicker" */,
 			);
 			productRefGroup = A5F69F2627C29F63009CDB05 /* Products */;
 			projectDirPath = "";
@@ -593,6 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5D0AAB827C36E09003E8681 /* NiblessViewController.swift in Sources */,
+				A5CACD7827C4A2A800D5EFA4 /* BackCameraView.swift in Sources */,
 				A5735B0527C3FBA5003D6C30 /* UIButtonExtension.swift in Sources */,
 				A582C14527C4023E005B3469 /* UIColorExtension.swift in Sources */,
 				A542AD6627C3748200899B89 /* NiblessView.swift in Sources */,
@@ -621,6 +634,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A5CACD7C27C4A43C00D5EFA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A5CACD7B27C4A43C00D5EFA4 /* PromiseKit */;
+		};
+		A5CACD7E27C4A43C00D5EFA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A5CACD7D27C4A43C00D5EFA4 /* SnapKit */;
+		};
 		A5F6A07D27C2AF09009CDB05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A5F6A07727C2AF09009CDB05 /* Reciptopia_iOS */;
@@ -852,6 +873,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -886,6 +908,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -919,6 +942,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -953,6 +977,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -986,6 +1011,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1020,6 +1046,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1094,6 +1121,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		A5CACD8127C4B29400D5EFA4 /* XCRemoteSwiftPackageReference "BSImagePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mikaoj/BSImagePicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1121,6 +1156,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A582C14627C40587005B3469 /* XCRemoteSwiftPackageReference "snapkit" */;
 			productName = SnapKit;
+		};
+		A5CACD7B27C4A43C00D5EFA4 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A542AD5C27C3727100899B89 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+		A5CACD7D27C4A43C00D5EFA4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A582C14627C40587005B3469 /* XCRemoteSwiftPackageReference "snapkit" */;
+			productName = SnapKit;
+		};
+		A5CACD7F27C4A44B00D5EFA4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A582C14627C40587005B3469 /* XCRemoteSwiftPackageReference "snapkit" */;
+			productName = SnapKit;
+		};
+		A5CACD8227C4B29400D5EFA4 /* BSImagePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5CACD8127C4B29400D5EFA4 /* XCRemoteSwiftPackageReference "BSImagePicker" */;
+			productName = BSImagePicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
