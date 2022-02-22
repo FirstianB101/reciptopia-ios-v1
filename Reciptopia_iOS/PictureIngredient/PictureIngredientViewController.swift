@@ -16,6 +16,7 @@ public class PictureIngredientViewController: NiblessViewController {
   
   // MARK: - Dependencies
   let viewModel: PictureIngredientViewModel
+  let makeManagePictureViewController: () -> ManagePictureViewController
   
   // MARK: - Properties
   private var bag = Set<AnyCancellable>()
@@ -43,8 +44,10 @@ public class PictureIngredientViewController: NiblessViewController {
   }()
   
   // MARK: - Methods
-  public init(viewModel: PictureIngredientViewModel) {
+  public init(viewModel: PictureIngredientViewModel,
+              managePictureViewControllerFactory: @escaping () -> ManagePictureViewController) {
     self.viewModel = viewModel
+    self.makeManagePictureViewController = managePictureViewControllerFactory
     super.init()
     observeViewModel()
   }
@@ -54,7 +57,7 @@ public class PictureIngredientViewController: NiblessViewController {
       guard let strongSelf = self else { return }
       switch action {
         case .photoAlbum: strongSelf.presentPhotoAlbum()
-        case .managePicture: print("present manage picture.")
+        case .managePicture: strongSelf.presentManagePicture()
         case .checkIngredients(let ingredients): print("present check \(ingredients).")
         case .community: print("present commnity.")
         case .search: print("present search.")
@@ -81,6 +84,12 @@ public class PictureIngredientViewController: NiblessViewController {
       action: #selector(PictureIngredientViewModel.presentSearch),
       for: .touchUpInside
     )
+  }
+  
+  private func presentManagePicture() {
+    let managePictureViewController = makeManagePictureViewController()
+    navigationItem.backButtonTitle = ""
+    navigationController?.pushViewController(managePictureViewController, animated: true)
   }
   
   private func presentPhotoAlbum() {

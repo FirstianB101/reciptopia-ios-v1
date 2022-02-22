@@ -152,7 +152,7 @@ fileprivate extension PictureIngredientRootView {
       .receive(on: DispatchQueue.main)
       .map { $0.count > 0 }
       .sink { [weak self] isEnabled in
-        self?.analyzeIngredientButton.isEnabled = isEnabled
+        self?.analyzeIngredientButton.isEnabledWithAlpha = isEnabled
         self?.pictureCountButton.isEnabled = isEnabled
       }.store(in: &bag)
   }
