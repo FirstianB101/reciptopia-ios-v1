@@ -12,6 +12,7 @@ public class ReciptopiaDependencyContainer {
   
   // MARK: - Properties
   private let sharedPictureIngredientRepository: PictureIngredientRepository
+  private let sharedPictureIngredientViewModel: PictureIngredientViewModel
   
   // MARK: - Methods
   public init() {
@@ -20,15 +21,24 @@ public class ReciptopiaDependencyContainer {
     }
     
     self.sharedPictureIngredientRepository = makePictureIngredientRepository()
+    self.sharedPictureIngredientViewModel = PictureIngredientViewModel(
+      pictureIngredientRepository: sharedPictureIngredientRepository
+    )
   }
   
   // picture ingredient
   public func makePictureIngredientViewController() -> PictureIngredientViewController {
-    let viewModel = makePictureIngredientViewModel()
-    return PictureIngredientViewController(viewModel: viewModel)
+    let managePictureViewControllerFactory = {
+      return self.makeManagePictureViewController()
+    }
+    return PictureIngredientViewController(
+      viewModel: sharedPictureIngredientViewModel,
+      managePictureViewControllerFactory: managePictureViewControllerFactory
+    )
   }
   
-  func makePictureIngredientViewModel() -> PictureIngredientViewModel {
-    return PictureIngredientViewModel(pictureIngredientRepository: sharedPictureIngredientRepository)
+  // manage picture
+  func makeManagePictureViewController() -> ManagePictureViewController {
+    return ManagePictureViewController(viewModel: sharedPictureIngredientViewModel)
   }
 }
