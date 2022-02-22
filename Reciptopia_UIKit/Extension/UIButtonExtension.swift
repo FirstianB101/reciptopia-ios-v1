@@ -12,4 +12,9 @@ extension UIButton {
   public func setTitleFont(_ font: UIFont) {
     self.titleLabel?.font = font
   }
+  
+  public var titleForNormal: String? {
+    get { self.title(for: .normal) }
+    set { self.setTitle(newValue, for: .normal) }
+  }
 }
