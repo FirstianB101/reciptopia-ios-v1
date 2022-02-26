@@ -15,7 +15,7 @@ public final class CoreDataUtil {
   
   // MARK: - CoreData Stack
   private lazy var persistentContainer: NSPersistentContainer = {
-    let container = NSPersistentContainer(name: "History")
+    let container = NSPersistentContainer(name: "CoreDataStorage")
     container.loadPersistentStores { (_, error) in
       if let error = error as NSError? {
         assertionFailure("Unresolved error \(error), \(error.userInfo)")
