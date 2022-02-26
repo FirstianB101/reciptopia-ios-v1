@@ -8,7 +8,7 @@
 import Foundation
 import PromiseKit
 
-protocol SearchHistoryDataStore {
+public protocol SearchHistoryDataStore {
   func fetch(_ page: Int) -> Promise<[History]>
   func save(_ history: History) -> Promise<History>
   func delete(_ history: History) -> Promise<Void>

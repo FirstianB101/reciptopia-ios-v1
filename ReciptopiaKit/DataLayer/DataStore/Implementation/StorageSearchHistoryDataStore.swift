@@ -9,7 +9,7 @@ import Foundation
 import PromiseKit
 import CoreData
 
-final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
+public final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
   
   // MARK: - Properties
   private let coreDataStorage = CoreDataUtil.shared
@@ -24,7 +24,9 @@ final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
   }
   
   // MARK: - Methods
-  func fetch(_ page: Int) -> Promise<[History]> {
+  public init() {}
+  
+  public func fetch(_ page: Int) -> Promise<[History]> {
     return Promise<[History]> { seal in
       do {
         let fetchRequest = HistoryEntity.fetchRequest()
@@ -40,13 +42,13 @@ final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
     }
   }
   
-  func save(_ history: History) -> Promise<History> {
+  public func save(_ history: History) -> Promise<History> {
     return Promise<History> { seal in
       let entity = NSEntityDescription.entity(forEntityName: "HistoryEntity", in: coreDataStorage.context)
       if let entity = entity {
         let managedObject = NSManagedObject(entity: entity, insertInto: coreDataStorage.context)
         let id = newHistoryId
-        managedObject.setValue(history.ingredient, forKey: "ingredient")
+        managedObject.setValue(history.ingredients, forKey: "ingredients")
         managedObject.setValue(id, forKey: "id")
         do {
           try coreDataStorage.context.save()
@@ -60,7 +62,7 @@ final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
     }
   }
   
-  func delete(_ history: History) -> Promise<Void> {
+  public func delete(_ history: History) -> Promise<Void> {
     return Promise<Void> { seal in
       guard let id = history.id else {
         print("\(Self.self) delete(_:) - history id is nil.")
@@ -82,7 +84,7 @@ final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
     }
   }
   
-  func deleteAll() -> Promise<Void> {
+  public func deleteAll() -> Promise<Void> {
     return Promise<Void> { seal in
       let request: NSFetchRequest<NSFetchRequestResult> = HistoryEntity.fetchRequest()
       let delete = NSBatchDeleteRequest(fetchRequest: request)

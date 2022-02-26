@@ -14,7 +14,7 @@ public final class DefaultSearchHistoryRepository: SearchHistoryRepository {
   let searchHistoryDataStore: SearchHistoryDataStore
   
   // MARK: - Methods
-  init(searchHistoryDataStore: SearchHistoryDataStore) {
+  public init(searchHistoryDataStore: SearchHistoryDataStore) {
     self.searchHistoryDataStore = searchHistoryDataStore
   }
   
