@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Ingredient {
-  let isMainIngredient: Bool
-  let name: String
-  let amount: String
+  public var isMainIngredient: Bool
+  public let name: String
+  public let amount: String
 }
 
 internal extension Ingredient {

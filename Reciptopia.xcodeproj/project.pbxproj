@@ -12,6 +12,8 @@
 		A5202FAA27C3DA6E003B6F3B /* FakePictureIngredientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5202FA927C3DA6E003B6F3B /* FakePictureIngredientRepository.swift */; };
 		A5202FAF27C3DED6003B6F3B /* AlertMessagePresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5202FAE27C3DED6003B6F3B /* AlertMessagePresent.swift */; };
 		A5202FB027C3E023003B6F3B /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5202FAB27C3DD16003B6F3B /* AlertMessage.swift */; };
+		A52271C227CA2CC9005F87CC /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52271C127CA2CC9005F87CC /* IngredientCell.swift */; };
+		A523430427C55D1300906AFC /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A570524927C55B8A00131681 /* CoreDataStorage.xcdatamodeld */; };
 		A542AD5E27C3727100899B89 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = A542AD5D27C3727100899B89 /* PromiseKit */; };
 		A542AD6027C3728E00899B89 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = A542AD5F27C3728E00899B89 /* PromiseKit */; };
 		A542AD6227C3729300899B89 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = A542AD6127C3729300899B89 /* PromiseKit */; };
@@ -29,6 +31,9 @@
 		A570523527C52CD300131681 /* HistoryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570522B27C52BA300131681 /* HistoryEntity+CoreDataClass.swift */; };
 		A570523627C52CDC00131681 /* HistoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570522C27C52BA300131681 /* HistoryEntity+CoreDataProperties.swift */; };
 		A570523827C52D7F00131681 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570523727C52D7F00131681 /* CoreDataError.swift */; };
+		A570524227C54D3C00131681 /* SearchIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570524127C54D3C00131681 /* SearchIngredientViewController.swift */; };
+		A570524427C54DE700131681 /* SearchIngredientRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570524327C54DE700131681 /* SearchIngredientRootView.swift */; };
+		A570524527C552F500131681 /* SearchIngredientViewModel+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570523927C544A900131681 /* SearchIngredientViewModel+Action.swift */; };
 		A5735B0527C3FBA5003D6C30 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5735B0427C3FBA5003D6C30 /* UIButtonExtension.swift */; };
 		A582C14527C4023E005B3469 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582C14427C4023E005B3469 /* UIColorExtension.swift */; };
 		A582C14827C40587005B3469 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A582C14727C40587005B3469 /* SnapKit */; };
@@ -46,8 +51,7 @@
 		A5CACD9927C4E09C00D5EFA4 /* StorageSearchHistoryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD9827C4E09C00D5EFA4 /* StorageSearchHistoryDataStore.swift */; };
 		A5CACD9E27C4E0E700D5EFA4 /* SearchHistoryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD9D27C4E0E700D5EFA4 /* SearchHistoryDataStore.swift */; };
 		A5CACDA827C4E1E500D5EFA4 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACDA727C4E1E500D5EFA4 /* CoreDataUtil.swift */; };
-		A5CACDAB27C4E29E00D5EFA4 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5CACDA927C4E29E00D5EFA4 /* CoreDataStorage.xcdatamodeld */; };
-		A5D0AAAB27C361B3003E8681 /* PictureIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */; };
+		A5D0AAAB27C361B3003E8681 /* PictureIngredientViewModel+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel+Action.swift */; };
 		A5D0AAB627C36DF1003E8681 /* ReciptopiaDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAB527C36DF1003E8681 /* ReciptopiaDependency.swift */; };
 		A5D0AAB827C36E09003E8681 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */; };
 		A5D0AABA27C37158003E8681 /* PictureIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0AAB927C37158003E8681 /* PictureIngredientViewController.swift */; };
@@ -111,6 +115,7 @@
 		A5202FA927C3DA6E003B6F3B /* FakePictureIngredientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePictureIngredientRepository.swift; sourceTree = "<group>"; };
 		A5202FAB27C3DD16003B6F3B /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		A5202FAE27C3DED6003B6F3B /* AlertMessagePresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessagePresent.swift; sourceTree = "<group>"; };
+		A52271C127CA2CC9005F87CC /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		A542AD6527C3748200899B89 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		A542AD6727C3885200899B89 /* PictureIngredientRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureIngredientRootView.swift; sourceTree = "<group>"; };
 		A542AD6E27C3896700899B89 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -124,6 +129,12 @@
 		A570522D27C52BA300131681 /* FavoriteEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A570522E27C52BA300131681 /* FavoriteEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A570523727C52D7F00131681 /* CoreDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
+		A570523927C544A900131681 /* SearchIngredientViewModel+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchIngredientViewModel+Action.swift"; sourceTree = "<group>"; };
+		A570524127C54D3C00131681 /* SearchIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIngredientViewController.swift; sourceTree = "<group>"; };
+		A570524327C54DE700131681 /* SearchIngredientRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIngredientRootView.swift; sourceTree = "<group>"; };
+		A570524A27C55B8A00131681 /* History.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = History.xcdatamodel; sourceTree = "<group>"; };
+		A570524B27C55B8A00131681 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
+		A570524C27C55B8A00131681 /* History copy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "History copy.xcdatamodel"; sourceTree = "<group>"; };
 		A5735B0427C3FBA5003D6C30 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A582C14427C4023E005B3469 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A5C3A3D127C3F6F100A2C428 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -138,8 +149,7 @@
 		A5CACD9827C4E09C00D5EFA4 /* StorageSearchHistoryDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSearchHistoryDataStore.swift; sourceTree = "<group>"; };
 		A5CACD9D27C4E0E700D5EFA4 /* SearchHistoryDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryDataStore.swift; sourceTree = "<group>"; };
 		A5CACDA727C4E1E500D5EFA4 /* CoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtil.swift; sourceTree = "<group>"; };
-		A5CACDAA27C4E29E00D5EFA4 /* History.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = History.xcdatamodel; sourceTree = "<group>"; };
-		A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureIngredientViewModel.swift; sourceTree = "<group>"; };
+		A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PictureIngredientViewModel+Action.swift"; sourceTree = "<group>"; };
 		A5D0AAB527C36DF1003E8681 /* ReciptopiaDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciptopiaDependency.swift; sourceTree = "<group>"; };
 		A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		A5D0AAB927C37158003E8681 /* PictureIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureIngredientViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +208,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A52271C027CA2CB9005F87CC /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */,
+				A52271C127CA2CC9005F87CC /* IngredientCell.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		A542AD6927C388ED00899B89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,11 +303,13 @@
 			path = ManagePicture;
 			sourceTree = "<group>";
 		};
-		A5CACD8F27C4DE7200D5EFA4 /* SearchByName */ = {
+		A5CACD8F27C4DE7200D5EFA4 /* SearchIngredient */ = {
 			isa = PBXGroup;
 			children = (
+				A570524127C54D3C00131681 /* SearchIngredientViewController.swift */,
+				A570524327C54DE700131681 /* SearchIngredientRootView.swift */,
 			);
-			path = SearchByName;
+			path = SearchIngredient;
 			sourceTree = "<group>";
 		};
 		A5CACD9727C4E07C00D5EFA4 /* DataLayer */ = {
@@ -358,7 +379,7 @@
 				A570523427C52BC300131681 /* Entity */,
 				A5CACDA727C4E1E500D5EFA4 /* CoreDataUtil.swift */,
 				A570523727C52D7F00131681 /* CoreDataError.swift */,
-				A5CACDA927C4E29E00D5EFA4 /* CoreDataStorage.xcdatamodeld */,
+				A570524927C55B8A00131681 /* CoreDataStorage.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -366,7 +387,7 @@
 		A5D0AAA027C35DF3003E8681 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */,
+				A52271C027CA2CB9005F87CC /* CustomView */,
 				A5D0AAB727C36E09003E8681 /* NiblessViewController.swift */,
 				A542AD6527C3748200899B89 /* NiblessView.swift */,
 				A5202FAE27C3DED6003B6F3B /* AlertMessagePresent.swift */,
@@ -380,7 +401,7 @@
 				A5D0AAB927C37158003E8681 /* PictureIngredientViewController.swift */,
 				A542AD6727C3885200899B89 /* PictureIngredientRootView.swift */,
 				A5CACD8527C4BD3A00D5EFA4 /* ManagePicture */,
-				A5CACD8F27C4DE7200D5EFA4 /* SearchByName */,
+				A5CACD8F27C4DE7200D5EFA4 /* SearchIngredient */,
 			);
 			path = PictureIngredient;
 			sourceTree = "<group>";
@@ -388,7 +409,8 @@
 		A5D0AAA727C3617E003E8681 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel.swift */,
+				A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel+Action.swift */,
+				A570523927C544A900131681 /* SearchIngredientViewModel+Action.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -697,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A523430427C55D1300906AFC /* CoreDataStorage.xcdatamodeld in Sources */,
 				A5F69F2927C29F63009CDB05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,10 +729,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5CACD8D27C4C0A800D5EFA4 /* ManagePictureCell.swift in Sources */,
+				A570524427C54DE700131681 /* SearchIngredientRootView.swift in Sources */,
 				A5CACD8B27C4BDE200D5EFA4 /* ManagePictureRootView.swift in Sources */,
 				A5D0AABA27C37158003E8681 /* PictureIngredientViewController.swift in Sources */,
 				A542AD6827C3885200899B89 /* PictureIngredientRootView.swift in Sources */,
 				A5C3A3D527C3F81400A2C428 /* ProfileViewController.swift in Sources */,
+				A570524227C54D3C00131681 /* SearchIngredientViewController.swift in Sources */,
 				A5CACD8927C4BD7B00D5EFA4 /* ManagePictureViewController.swift in Sources */,
 				A5D0AAB627C36DF1003E8681 /* ReciptopiaDependency.swift in Sources */,
 			);
@@ -719,6 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52271C227CA2CC9005F87CC /* IngredientCell.swift in Sources */,
 				A5D0AAB827C36E09003E8681 /* NiblessViewController.swift in Sources */,
 				A5CACD7827C4A2A800D5EFA4 /* BackCameraView.swift in Sources */,
 				A5735B0527C3FBA5003D6C30 /* UIButtonExtension.swift in Sources */,
@@ -734,6 +760,7 @@
 			files = (
 				A5CACD9627C4E03400D5EFA4 /* DefaultSearchHistoryRepository.swift in Sources */,
 				A570523527C52CD300131681 /* HistoryEntity+CoreDataClass.swift in Sources */,
+				A570524527C552F500131681 /* SearchIngredientViewModel+Action.swift in Sources */,
 				A5202FA727C3D915003B6F3B /* Ingredient.swift in Sources */,
 				A542AD7427C38A3000899B89 /* NetworkError.swift in Sources */,
 				A5202FAA27C3DA6E003B6F3B /* FakePictureIngredientRepository.swift in Sources */,
@@ -749,10 +776,9 @@
 				A5CACDA827C4E1E500D5EFA4 /* CoreDataUtil.swift in Sources */,
 				A5C3A3D227C3F6F100A2C428 /* UserSession.swift in Sources */,
 				A5202FB027C3E023003B6F3B /* AlertMessage.swift in Sources */,
-				A5D0AAAB27C361B3003E8681 /* PictureIngredientViewModel.swift in Sources */,
+				A5D0AAAB27C361B3003E8681 /* PictureIngredientViewModel+Action.swift in Sources */,
 				A5CACD9427C4DF6C00D5EFA4 /* History.swift in Sources */,
 				A570523227C52BA300131681 /* FavoriteEntity+CoreDataProperties.swift in Sources */,
-				A5CACDAB27C4E29E00D5EFA4 /* CoreDataStorage.xcdatamodeld in Sources */,
 				A5202FA527C3D77D003B6F3B /* DefaultPictureIngredientRepository.swift in Sources */,
 				A5CACD9927C4E09C00D5EFA4 /* StorageSearchHistoryDataStore.swift in Sources */,
 				A542AD7F27C3B8A600899B89 /* PictureIngredientRepository.swift in Sources */,
@@ -1310,12 +1336,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		A5CACDA927C4E29E00D5EFA4 /* CoreDataStorage.xcdatamodeld */ = {
+		A570524927C55B8A00131681 /* CoreDataStorage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A5CACDAA27C4E29E00D5EFA4 /* History.xcdatamodel */,
+				A570524A27C55B8A00131681 /* History.xcdatamodel */,
+				A570524B27C55B8A00131681 /* CoreDataStorage.xcdatamodel */,
+				A570524C27C55B8A00131681 /* History copy.xcdatamodel */,
 			);
-			currentVersion = A5CACDAA27C4E29E00D5EFA4 /* History.xcdatamodel */;
+			currentVersion = A570524B27C55B8A00131681 /* CoreDataStorage.xcdatamodel */;
 			path = CoreDataStorage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

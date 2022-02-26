@@ -9,5 +9,5 @@ import Foundation
 
 public struct History {
   let id: Int?
-  let ingredient: String
+  let ingredients: [String]
 }
