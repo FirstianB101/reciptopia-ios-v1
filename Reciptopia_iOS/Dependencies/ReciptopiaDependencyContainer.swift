@@ -12,7 +12,6 @@ public class ReciptopiaDependencyContainer {
   
   // MARK: - Properties
   private let sharedPictureIngredientRepository: PictureIngredientRepository
-  private let sharedSearchHistoryRepository: SearchHistoryRepository
   private let sharedPictureIngredientViewModel: PictureIngredientViewModel
   
   // MARK: - Methods
@@ -21,17 +20,7 @@ public class ReciptopiaDependencyContainer {
       return FakePictureIngredientRepository()
     }
     
-    func makeSearchHistoryDataStore() -> SearchHistoryDataStore {
-      return StorageSearchHistoryDataStore()
-    }
-    
-    func makeSearchHistoryRepository() -> SearchHistoryRepository {
-      let searchHistoryDataStore = makeSearchHistoryDataStore()
-      return DefaultSearchHistoryRepository(searchHistoryDataStore: searchHistoryDataStore)
-    }
-    
     self.sharedPictureIngredientRepository = makePictureIngredientRepository()
-    self.sharedSearchHistoryRepository = makeSearchHistoryRepository()
     self.sharedPictureIngredientViewModel = PictureIngredientViewModel(
       pictureIngredientRepository: sharedPictureIngredientRepository
     )
@@ -58,13 +47,9 @@ public class ReciptopiaDependencyContainer {
     return ManagePictureViewController(viewModel: sharedPictureIngredientViewModel)
   }
   
-  // search ingredient
+  // search ingredient (new dependency)
   func makeSearchIngredientViewController() -> SearchIngredientViewController {
-    let viewModel = makeSearchIngredientViewModel()
-    return SearchIngredientViewController(viewModel: viewModel)
-  }
-  
-  func makeSearchIngredientViewModel() -> SearchIngredientViewModel {
-    return SearchIngredientViewModel(searchHistoryRepository: sharedSearchHistoryRepository)
+    let searchIngredientDependency = SearchIngredientDependencyContainer(superDependency: self)
+    return searchIngredientDependency.makeSearchIngredientViewController()
   }
 }
