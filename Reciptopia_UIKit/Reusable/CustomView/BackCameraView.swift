@@ -22,8 +22,8 @@ public final class BackCameraView: NiblessView {
   // MARK: - Methods
   public override func didMoveToWindow() {
     super.didMoveToWindow()
-    guard !isAlreadyPresented else { return }
     backgroundColor = .lightGray
+    if isAlreadyPresented { return }
     getBackCamera()
     configurePreviewView()
     isAlreadyPresented = true
@@ -72,6 +72,22 @@ public final class BackCameraView: NiblessView {
       self.captureSession.startRunning()
       DispatchQueue.main.async {
         self.previewLayer.frame = self.bounds
+      }
+    }
+  }
+  
+  public func startRunning() {
+    if let captureSession = captureSession {
+      DispatchQueue.global(qos: .userInitiated).async {
+        captureSession.startRunning()
+      }
+    }
+  }
+  
+  public func stopRunning() {
+    if let captureSession = captureSession {
+      DispatchQueue.global(qos: .background).async {
+        captureSession.stopRunning()
       }
     }
   }

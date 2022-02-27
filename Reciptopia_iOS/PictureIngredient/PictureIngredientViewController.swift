@@ -17,6 +17,7 @@ public class PictureIngredientViewController: NiblessViewController {
   // MARK: - Dependencies
   let viewModel: PictureIngredientViewModel
   let makeManagePictureViewController: () -> ManagePictureViewController
+  let makeSearchIngredientViewController: () -> SearchIngredientViewController
   
   // MARK: - Properties
   private var bag = Set<AnyCancellable>()
@@ -45,31 +46,33 @@ public class PictureIngredientViewController: NiblessViewController {
   
   // MARK: - Methods
   public init(viewModel: PictureIngredientViewModel,
-              managePictureViewControllerFactory: @escaping () -> ManagePictureViewController) {
+              managePictureViewControllerFactory: @escaping () -> ManagePictureViewController,
+              searchIngredientViewControllerFactory: @escaping () -> SearchIngredientViewController) {
     self.viewModel = viewModel
     self.makeManagePictureViewController = managePictureViewControllerFactory
+    self.makeSearchIngredientViewController = searchIngredientViewControllerFactory
     super.init()
     observeViewModel()
-  }
-  
-  private func observeViewModel() {
-    viewModel.action.sink { [weak self] action in
-      guard let strongSelf = self else { return }
-      switch action {
-        case .photoAlbum: strongSelf.presentPhotoAlbum()
-        case .managePicture: strongSelf.presentManagePicture()
-        case .checkIngredients(let ingredients): print("present check \(ingredients).")
-        case .community: print("present commnity.")
-        case .search: print("present search.")
-        case .notification: print("present notification.")
-      }
-    }.store(in: &bag)
   }
   
   public override func viewDidLoad() {
     super.viewDidLoad()
     view = PictureIngredientRootView(viewModel: viewModel)
     configureNavigationBar()
+  }
+  
+  public override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if let view = view as? PictureIngredientRootView {
+      view.previewView.startRunning()
+    }
+  }
+  
+  public override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    if let view = view as? PictureIngredientRootView {
+      view.previewView.stopRunning()
+    }
   }
   
   private func configureNavigationBar() {
@@ -86,10 +89,31 @@ public class PictureIngredientViewController: NiblessViewController {
     )
   }
   
+  private func observeViewModel() {
+    viewModel.action.sink { [weak self] action in
+      guard let strongSelf = self else { return }
+      switch action {
+        case .photoAlbum: strongSelf.presentPhotoAlbum()
+        case .managePicture: strongSelf.presentManagePicture()
+        case .checkIngredients(let ingredients): print("present check \(ingredients).")
+        case .community: print("present commnity.")
+        case .search: strongSelf.presentSearchIngredient()
+        case .notification: print("present notification.")
+      }
+    }.store(in: &bag)
+  }
+  
   private func presentManagePicture() {
     let managePictureViewController = makeManagePictureViewController()
     navigationItem.backButtonTitle = ""
     navigationController?.pushViewController(managePictureViewController, animated: true)
+  }
+  
+  private func presentSearchIngredient() {
+    let searchIngredientViewController = makeSearchIngredientViewController()
+    searchIngredientViewController.modalTransitionStyle = .crossDissolve
+    searchIngredientViewController.modalPresentationStyle = .currentContext
+    present(searchIngredientViewController, animated: true)
   }
   
   private func presentPhotoAlbum() {
