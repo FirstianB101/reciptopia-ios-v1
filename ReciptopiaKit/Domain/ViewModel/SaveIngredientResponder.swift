@@ -9,5 +9,5 @@ import Foundation
 import PromiseKit
 
 public protocol SaveIngredientResponder {
-  func save(ingredients: [Ingredient])
+  func saveIngredients(_ ingredients: [Ingredient])
 }

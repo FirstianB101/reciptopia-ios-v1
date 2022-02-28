@@ -58,7 +58,7 @@ public class SearchIngredientViewModel: ErrorPublishable {
   }
   
   @objc public func searchByIngredients() {
-    saveHistoryResponder.save(ingredients: ingredients)
+    saveHistoryResponder.saveIngredients(ingredients)
   }
   
   public func changeView(at segment: Int) {
