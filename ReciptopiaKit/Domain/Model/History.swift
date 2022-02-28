@@ -8,6 +8,6 @@
 import Foundation
 
 public struct History {
-  let id: Int?
-  let ingredients: [String]
+  public let id: Int?
+  public let ingredients: [String]
 }
