@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import PromiseKit
 
-public class SearchHistoryViewModel: SaveIngredientResponder {
+public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
   
   // MARK: - Dependencies
   let searchHistoryRepository: SearchHistoryRepository
@@ -17,7 +17,7 @@ public class SearchHistoryViewModel: SaveIngredientResponder {
   // MARK: - Properties
   @Published public private(set) var searchHistories = [History]()
   public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
-  private var historyPage = 0
+  private var page = 0
   
   // MARK: - Methods
   public init(searchHistoryRepository: SearchHistoryRepository) {
@@ -26,9 +26,9 @@ public class SearchHistoryViewModel: SaveIngredientResponder {
   }
   
   private func fetchSearchHistory() {
-    searchHistoryRepository.fetch(historyPage)
+    searchHistoryRepository.fetch(page)
       .done(sendSearchHistories(_:))
-      .catch(publishAlert(_:))
+      .catch(publishError(_:))
   }
   
   private func sendSearchHistories(_ histories: [History]) {
@@ -41,7 +41,7 @@ public class SearchHistoryViewModel: SaveIngredientResponder {
     
     searchHistoryRepository.delete(history)
       .done { _ in self.fetchSearchHistory() }
-      .catch(publishAlert(_:))
+      .catch(publishError(_:))
   }
   
   public func save(ingredients: [Ingredient]) {
@@ -50,14 +50,10 @@ public class SearchHistoryViewModel: SaveIngredientResponder {
     
     searchHistoryRepository.save(history)
       .done(appendSavedHistory(_:))
-      .catch(publishAlert(_:))
+      .catch(publishError(_:))
   }
   
   private func appendSavedHistory(_ history: History) {
     searchHistories.append(history)
-  }
-  
-  private func publishAlert(_ error: Error) {
-    alertPublisher.send(.makeErrorMessage())
   }
 }

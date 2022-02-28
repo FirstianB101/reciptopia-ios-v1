@@ -15,7 +15,7 @@ public enum SearchIngredientAction: Int {
   case dismiss
 }
 
-public class SearchIngredientViewModel {
+public class SearchIngredientViewModel: ErrorPublishable {
   
   // MARK: - Dependencies
   let saveHistoryResponder: SaveIngredientResponder
@@ -28,10 +28,6 @@ public class SearchIngredientViewModel {
   // MARK: - Methods
   public init(saveHistoryResponder: SaveIngredientResponder) {
     self.saveHistoryResponder = saveHistoryResponder
-  }
-
-  private func publishAlert(_ error: Error) {
-    alertPublisher.send(.makeErrorMessage())
   }
   
   @objc public func removeIngredient(at index: Int) {

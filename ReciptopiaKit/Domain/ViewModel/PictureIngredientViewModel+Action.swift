@@ -18,7 +18,7 @@ public enum PictureIngredientAction {
   case checkIngredients(ingredients: [Ingredient])
 }
 
-public class PictureIngredientViewModel {
+public class PictureIngredientViewModel: ErrorPublishable {
   
   // MARK: - Dependencies
   let pictureIngredientRepository: PictureIngredientRepository
@@ -43,7 +43,7 @@ public class PictureIngredientViewModel {
     let pictures = pictureIngredients.value
     pictureIngredientRepository.analyze(pictures)
       .done(presentCheckIngredients(_:))
-      .catch(presentErrorMessage(_:))
+      .catch(publishError(_:))
   }
   
   @objc public func deleteIngredients() {
@@ -55,10 +55,6 @@ public class PictureIngredientViewModel {
   
   private func presentCheckIngredients(_ ingredients: [Ingredient]) {
     action.send(.checkIngredients(ingredients: ingredients))
-  }
-  
-  private func presentErrorMessage(_ error: Error) {
-    alertPublisher.send(.makeErrorMessage())
   }
   
   @objc public func presentManagePicture() {
