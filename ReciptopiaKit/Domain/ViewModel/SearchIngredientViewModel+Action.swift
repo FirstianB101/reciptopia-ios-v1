@@ -9,7 +9,9 @@ import Foundation
 import Combine
 import PromiseKit
 
-public enum SearchIngredientAction {
+public enum SearchIngredientAction: Int {
+  case history = 0
+  case favorite = 1
   case dismiss
 }
 
@@ -39,6 +41,7 @@ public class SearchIngredientViewModel {
   
   private func sortSearchHistoryAndSend(_ histories: [History]) {
     let sortedHistories = histories.sorted { $0.id! < $1.id! }
+    print(sortedHistories)
     searchHistories = sortedHistories
   }
   
@@ -71,5 +74,29 @@ public class SearchIngredientViewModel {
   
   @objc public func dismiss() {
     action.send(.dismiss)
+  }
+  
+  @objc public func searchByIngredients() {
+    let ingredients = ingredients.map { $0.name }
+    let history = History(id: nil, ingredients: ingredients)
+    
+    searchHistoryRepository.save(history)
+      .done { _ in self.fetchSearchHistory() }
+      .catch(publishAlert(_:))
+  }
+  
+  public func deleteHistory(at index: Int) {
+    let history = searchHistories[index]
+    searchHistories.remove(at: index)
+    
+    searchHistoryRepository.delete(history)
+      .done { _ in self.fetchSearchHistory() }
+      .catch(publishAlert(_:))
+  }
+  
+  public func changeView(at segment: Int) {
+    guard let segment = SearchIngredientAction(rawValue: segment) else { return }
+    action.send(segment)
+    print(segment)
   }
 }
