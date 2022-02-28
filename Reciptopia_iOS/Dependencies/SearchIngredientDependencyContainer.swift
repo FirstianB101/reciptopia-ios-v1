@@ -11,7 +11,7 @@ import ReciptopiaKit
 public final class SearchIngredientDependencyContainer {
   
   // MARK: - Properties
-  private let sharedSearchHistoryRepository: SearchHistoryRepository
+  private let sharedSearchHistoryViewModel: SearchHistoryViewModel
   
   // MARK: - Methods
   public init(superDependency: ReciptopiaDependencyContainer) {
@@ -24,16 +24,30 @@ public final class SearchIngredientDependencyContainer {
       return DefaultSearchHistoryRepository(searchHistoryDataStore: searchHistoryDataStore)
     }
     
-    self.sharedSearchHistoryRepository = makeSearchHistoryRepository()
+    func makeSearchHistoryViewModel() -> SearchHistoryViewModel {
+      let searchHistoryRepository = makeSearchHistoryRepository()
+      return SearchHistoryViewModel(searchHistoryRepository: searchHistoryRepository)
+    }
+    
+    self.sharedSearchHistoryViewModel = makeSearchHistoryViewModel()
   }
   
   // search ingredient
   func makeSearchIngredientViewController() -> SearchIngredientViewController {
     let viewModel = makeSearchIngredientViewModel()
-    return SearchIngredientViewController(viewModel: viewModel)
+    let searchHistoryRootView = makeSearchHistoryRootView()
+    return SearchIngredientViewController(
+      viewModel: viewModel,
+      searchHistoryRootView: searchHistoryRootView
+    )
   }
   
   func makeSearchIngredientViewModel() -> SearchIngredientViewModel {
-    return SearchIngredientViewModel(searchHistoryRepository: sharedSearchHistoryRepository)
+    return SearchIngredientViewModel(saveHistoryResponder: sharedSearchHistoryViewModel)
+  }
+  
+  // search history
+  func makeSearchHistoryRootView() -> SearchHistoryRootView {
+    return SearchHistoryRootView(viewModel: sharedSearchHistoryViewModel)
   }
 }
