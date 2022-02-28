@@ -21,4 +21,5 @@ extension UIColor {
   public static let accentColor = UIColor(0x5F8FED)
   public static let collectionBackground = UIColor(0xE5E5E5)
   public static let mainIngredient = UIColor(0xEAAD11)
+  public static let searchHistoryTint = UIColor(0xBEBEF0)
 }
