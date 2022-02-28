@@ -18,33 +18,18 @@ public enum SearchIngredientAction: Int {
 public class SearchIngredientViewModel {
   
   // MARK: - Dependencies
-  let searchHistoryRepository: SearchHistoryRepository
+  let saveHistoryResponder: SaveIngredientResponder
   
   // MARK: - Properties
-  @Published public private(set) var searchHistories = [History]()
   @Published public private(set) var ingredients = [Ingredient]()
   public let action = PassthroughSubject<SearchIngredientAction, Never>()
   public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
-  private var historyPage = 0
   
   // MARK: - Methods
-  public init(searchHistoryRepository: SearchHistoryRepository) {
-    self.searchHistoryRepository = searchHistoryRepository
-    fetchSearchHistory()
+  public init(saveHistoryResponder: SaveIngredientResponder) {
+    self.saveHistoryResponder = saveHistoryResponder
   }
-  
-  private func fetchSearchHistory() {
-    searchHistoryRepository.fetch(historyPage)
-      .done(sortSearchHistoryAndSend(_:))
-      .catch(publishAlert(_:))
-  }
-  
-  private func sortSearchHistoryAndSend(_ histories: [History]) {
-    let sortedHistories = histories.sorted { $0.id! < $1.id! }
-    print(sortedHistories)
-    searchHistories = sortedHistories
-  }
-  
+
   private func publishAlert(_ error: Error) {
     alertPublisher.send(.makeErrorMessage())
   }
@@ -77,21 +62,7 @@ public class SearchIngredientViewModel {
   }
   
   @objc public func searchByIngredients() {
-    let ingredients = ingredients.map { $0.name }
-    let history = History(id: nil, ingredients: ingredients)
-    
-    searchHistoryRepository.save(history)
-      .done { _ in self.fetchSearchHistory() }
-      .catch(publishAlert(_:))
-  }
-  
-  public func deleteHistory(at index: Int) {
-    let history = searchHistories[index]
-    searchHistories.remove(at: index)
-    
-    searchHistoryRepository.delete(history)
-      .done { _ in self.fetchSearchHistory() }
-      .catch(publishAlert(_:))
+    saveHistoryResponder.save(ingredients: ingredients)
   }
   
   public func changeView(at segment: Int) {

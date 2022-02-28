@@ -26,11 +26,11 @@ public final class SearchHistoryRootView: NiblessView {
     return tableView
   }()
   
-  let viewModel: SearchIngredientViewModel
+  let viewModel: SearchHistoryViewModel
   var bag = Set<AnyCancellable>()
   
   // MARK: - Methods
-  public init(frame: CGRect = .zero, viewModel: SearchIngredientViewModel) {
+  public init(frame: CGRect = .zero, viewModel: SearchHistoryViewModel) {
     self.viewModel = viewModel
     super.init(frame: frame)
     observeViewModel()

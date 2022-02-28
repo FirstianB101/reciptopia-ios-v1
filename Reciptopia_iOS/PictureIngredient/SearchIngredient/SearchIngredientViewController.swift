@@ -14,20 +14,28 @@ public class SearchIngredientViewController: NiblessViewController {
   
   // MARK: - Dependencies
   let viewModel: SearchIngredientViewModel
+  let searchHistoryRootView: SearchHistoryRootView
   
   // MARK: - Properties
   private var bag = Set<AnyCancellable>()
   
   // MARK: - Methods
-  public init(viewModel: SearchIngredientViewModel) {
+  public init(
+    viewModel: SearchIngredientViewModel,
+    searchHistoryRootView: SearchHistoryRootView
+  ) {
     self.viewModel = viewModel
+    self.searchHistoryRootView = searchHistoryRootView
     super.init()
     observeViewModel()
   }
   
   public override func viewDidLoad() {
     super.viewDidLoad()
-    view = SearchIngredientRootView(viewModel: viewModel)
+    view = SearchIngredientRootView(
+      viewModel: viewModel,
+      searchHistoryRootView: searchHistoryRootView
+    )
   }
   
   private func observeViewModel() {

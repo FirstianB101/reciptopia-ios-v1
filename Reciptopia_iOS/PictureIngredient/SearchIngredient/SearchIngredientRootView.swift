@@ -14,8 +14,11 @@ public final class SearchIngredientRootView: NiblessView {
   
   // MARK: - Dependencies
   let viewModel: SearchIngredientViewModel
+  let searchHistoryRootView: SearchHistoryRootView
   
   // MARK: - Properties
+  var bag = Set<AnyCancellable>()
+  
   lazy var titleStack: UIStackView = {
     let stack = UIStackView(arrangedSubviews: [searchBar, dismissButton])
     stack.axis = .horizontal
@@ -78,13 +81,14 @@ public final class SearchIngredientRootView: NiblessView {
     return button
   }()
   
-  lazy var searchHistoryRootView: SearchHistoryRootView = {
-    return SearchHistoryRootView(viewModel: viewModel)
-  }()
-  
   // MARK: - Methods
-  public init(frame: CGRect = .zero, viewModel: SearchIngredientViewModel) {
+  public init(
+    frame: CGRect = .zero,
+    viewModel: SearchIngredientViewModel,
+    searchHistoryRootView: SearchHistoryRootView
+  ) {
     self.viewModel = viewModel
+    self.searchHistoryRootView = searchHistoryRootView
     super.init(frame: frame)
     bindViewModel()
   }
@@ -97,7 +101,11 @@ public final class SearchIngredientRootView: NiblessView {
   }
   
   private func bindViewModel() {
-    
+    viewModel.$ingredients
+      .receive(on: DispatchQueue.main)
+      .map { $0.isEmpty ? UIColor.gray.withAlphaComponent(0.2) : UIColor.accentColor }
+      .assign(to: \.backgroundColor, on: searchButton)
+      .store(in: &bag)
   }
   
   private func buildHierarchy() {

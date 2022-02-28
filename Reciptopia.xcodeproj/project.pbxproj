@@ -45,6 +45,8 @@
 		A5C2920927CC89E9004729D1 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2920827CC89E9004729D1 /* FloatingButton.swift */; };
 		A5C2920D27CCBC7E004729D1 /* FavoriteBoardDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2920C27CCBC7E004729D1 /* FavoriteBoardDataStore.swift */; };
 		A5C2920F27CCBCBC004729D1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2920E27CCBCBC004729D1 /* Favorite.swift */; };
+		A5C2921127CCF40D004729D1 /* SearchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921027CCF40D004729D1 /* SearchHistoryViewModel.swift */; };
+		A5C2921327CCF594004729D1 /* SaveIngredientResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921227CCF594004729D1 /* SaveIngredientResponder.swift */; };
 		A5C3A3D227C3F6F100A2C428 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D127C3F6F100A2C428 /* UserSession.swift */; };
 		A5C3A3D527C3F81400A2C428 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */; };
 		A5CACD7827C4A2A800D5EFA4 /* BackCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */; };
@@ -153,6 +155,8 @@
 		A5C2920827CC89E9004729D1 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		A5C2920C27CCBC7E004729D1 /* FavoriteBoardDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBoardDataStore.swift; sourceTree = "<group>"; };
 		A5C2920E27CCBCBC004729D1 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		A5C2921027CCF40D004729D1 /* SearchHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewModel.swift; sourceTree = "<group>"; };
+		A5C2921227CCF594004729D1 /* SaveIngredientResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIngredientResponder.swift; sourceTree = "<group>"; };
 		A5C3A3D127C3F6F100A2C428 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCameraView.swift; sourceTree = "<group>"; };
@@ -434,6 +438,8 @@
 			children = (
 				A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel+Action.swift */,
 				A570523927C544A900131681 /* SearchIngredientViewModel+Action.swift */,
+				A5C2921027CCF40D004729D1 /* SearchHistoryViewModel.swift */,
+				A5C2921227CCF594004729D1 /* SaveIngredientResponder.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -799,6 +805,7 @@
 				A5CACD9227C4DF4E00D5EFA4 /* SearchHistoryRepository.swift in Sources */,
 				A5CACD9E27C4E0E700D5EFA4 /* SearchHistoryDataStore.swift in Sources */,
 				A542AD7727C38AE200899B89 /* TokenUtil.swift in Sources */,
+				A5C2921127CCF40D004729D1 /* SearchHistoryViewModel.swift in Sources */,
 				A570523127C52BA300131681 /* FavoriteEntity+CoreDataClass.swift in Sources */,
 				A570523827C52D7F00131681 /* CoreDataError.swift in Sources */,
 				A542AD7127C3898200899B89 /* Network.swift in Sources */,
@@ -811,6 +818,7 @@
 				A5CACD9427C4DF6C00D5EFA4 /* History.swift in Sources */,
 				A570523227C52BA300131681 /* FavoriteEntity+CoreDataProperties.swift in Sources */,
 				A5202FA527C3D77D003B6F3B /* DefaultPictureIngredientRepository.swift in Sources */,
+				A5C2921327CCF594004729D1 /* SaveIngredientResponder.swift in Sources */,
 				A5CACD9927C4E09C00D5EFA4 /* StorageSearchHistoryDataStore.swift in Sources */,
 				A5C2920D27CCBC7E004729D1 /* FavoriteBoardDataStore.swift in Sources */,
 				A542AD7F27C3B8A600899B89 /* PictureIngredientRepository.swift in Sources */,
