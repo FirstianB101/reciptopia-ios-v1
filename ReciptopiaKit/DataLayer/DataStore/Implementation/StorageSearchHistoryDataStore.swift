@@ -74,6 +74,7 @@ public final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
         fetchRequest.predicate = NSPredicate(format: "id == %i", id)
         if let fetchResult = try coreDataStorage.context.fetch(fetchRequest).first {
           coreDataStorage.context.delete(fetchResult)
+          coreDataStorage.saveContext()
           seal.fulfill(())
         } else {
           seal.reject(CoreDataError.deleteError)
