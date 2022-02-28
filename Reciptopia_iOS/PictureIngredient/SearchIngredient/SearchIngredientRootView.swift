@@ -5,7 +5,7 @@
 //  Created by 김세영 on 2022/02/23.
 //
 
-import Foundation
+import Combine
 import Reciptopia_UIKit
 import ReciptopiaKit
 import SnapKit
@@ -38,13 +38,13 @@ public final class SearchIngredientRootView: NiblessView {
     searchBar.enablesReturnKeyAutomatically = true
     searchBar.delegate = self
     searchBar.backgroundImage = UIImage()
-    searchBar.becomeFirstResponder()
+//    searchBar.becomeFirstResponder()
     return searchBar
   }()
   
   lazy var ingredientsCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
-    layout.minimumLineSpacing = 10
+    layout.minimumLineSpacing = 7
     layout.scrollDirection = .horizontal
     layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
@@ -54,15 +54,39 @@ public final class SearchIngredientRootView: NiblessView {
     collectionView.showsHorizontalScrollIndicator = false
     collectionView.delegate = self
     collectionView.dataSource = self
-    collectionView.register(IngredientCell.self, forCellWithReuseIdentifier: IngredientCell.reuseIdentifier)
+    collectionView.register(
+      IngredientCell.self,
+      forCellWithReuseIdentifier: IngredientCell.reuseIdentifier
+    )
     
     return collectionView
+  }()
+  
+  lazy var historyAndFavoriteViewPager: PagingSegmentedControl = {
+    let segmentedControl = PagingSegmentedControl()
+    let historySegment = SearchIngredientAction.history.rawValue
+    let favoriteSegment = SearchIngredientAction.favorite.rawValue
+    segmentedControl.insertSegment(withTitle: "검색 기록", at: historySegment, animated: false)
+    segmentedControl.insertSegment(withTitle: "즐겨찾기", at: favoriteSegment, animated: false)
+    segmentedControl.selectedSegmentIndex = historySegment
+    return segmentedControl
+  }()
+  
+  lazy var searchButton: FloatingButton = {
+    let button = FloatingButton(size: 50)
+    button.setImage(UIImage(systemName: "magnifyingglass"))
+    return button
+  }()
+  
+  lazy var searchHistoryRootView: SearchHistoryRootView = {
+    return SearchHistoryRootView(viewModel: viewModel)
   }()
   
   // MARK: - Methods
   public init(frame: CGRect = .zero, viewModel: SearchIngredientViewModel) {
     self.viewModel = viewModel
     super.init(frame: frame)
+    bindViewModel()
   }
   
   public override func didMoveToWindow() {
@@ -72,14 +96,24 @@ public final class SearchIngredientRootView: NiblessView {
     addTargets()
   }
   
+  private func bindViewModel() {
+    
+  }
+  
   private func buildHierarchy() {
     addSubview(titleStack)
     addSubview(ingredientsCollectionView)
+    addSubview(historyAndFavoriteViewPager)
+    addSubview(searchHistoryRootView)
+    addSubview(searchButton)
   }
   
   private func activateConstraints() {
     activateConstraintsTitleStack()
     activateConstraintsIngredientCollectionView()
+    activateConstraintsHistoryAndFavoriteViewPager()
+    activateConstraintsSearchButton()
+    activateConstraintsSearchHistoryRootView()
   }
   
   private func addTargets() {
@@ -88,6 +122,22 @@ public final class SearchIngredientRootView: NiblessView {
       action: #selector(SearchIngredientViewModel.dismiss),
       for: .touchUpInside
     )
+    
+    historyAndFavoriteViewPager.addTarget(
+      self,
+      action: #selector(viewPagerDidChangeValue),
+      for: .valueChanged
+    )
+    
+    searchButton.addTarget(
+      viewModel,
+      action: #selector(SearchIngredientViewModel.searchByIngredients),
+      for: .touchUpInside
+    )
+  }
+  
+  @objc private func viewPagerDidChangeValue() {
+    viewModel.changeView(at: historyAndFavoriteViewPager.selectedSegmentIndex)
   }
 }
 
@@ -104,6 +154,28 @@ extension SearchIngredientRootView {
       make.top.equalTo(titleStack.snp.bottom)
       make.leading.trailing.equalTo(safeAreaLayoutGuide)
       make.height.equalTo(50)
+    }
+  }
+  
+  private func activateConstraintsHistoryAndFavoriteViewPager() {
+    historyAndFavoriteViewPager.snp.makeConstraints { make in
+      make.top.equalTo(ingredientsCollectionView.snp.bottom)
+      make.leading.trailing.equalTo(safeAreaLayoutGuide)
+      make.height.equalTo(40)
+    }
+  }
+  
+  private func activateConstraintsSearchButton() {
+    searchButton.snp.makeConstraints { make in
+      make.trailing.equalTo(safeAreaLayoutGuide).inset(30)
+      make.bottom.equalTo(safeAreaLayoutGuide).inset(10)
+    }
+  }
+  
+  private func activateConstraintsSearchHistoryRootView() {
+    searchHistoryRootView.snp.makeConstraints { make in
+      make.top.equalTo(historyAndFavoriteViewPager.snp.bottom)
+      make.leading.bottom.trailing.equalTo(safeAreaInsets)
     }
   }
 }

@@ -46,6 +46,7 @@ public class SearchIngredientViewController: NiblessViewController {
       .sink { [weak self] action in
         switch action {
           case .dismiss: self?.dismiss(animated: true)
+          default: break
         }
       }.store(in: &bag)
   }
