@@ -47,6 +47,12 @@
 		A5C2920F27CCBCBC004729D1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2920E27CCBCBC004729D1 /* Favorite.swift */; };
 		A5C2921127CCF40D004729D1 /* SearchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921027CCF40D004729D1 /* SearchHistoryViewModel.swift */; };
 		A5C2921327CCF594004729D1 /* SaveIngredientResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921227CCF594004729D1 /* SaveIngredientResponder.swift */; };
+		A5C2921527CCFBDA004729D1 /* StorageFavoriteBoardDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921427CCFBDA004729D1 /* StorageFavoriteBoardDataStore.swift */; };
+		A5C2921727CCFD1B004729D1 /* FavoriteEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921627CCFD1B004729D1 /* FavoriteEntity+Mapping.swift */; };
+		A5C2921927CCFD99004729D1 /* FavoriteBoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921827CCFD99004729D1 /* FavoriteBoardRepository.swift */; };
+		A5C2921B27CCFDFD004729D1 /* DefaultFavoriteBoardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921A27CCFDFD004729D1 /* DefaultFavoriteBoardRepository.swift */; };
+		A5C2921D27CCFE83004729D1 /* FavoriteBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921C27CCFE83004729D1 /* FavoriteBoardViewModel.swift */; };
+		A5C2921F27CCFF55004729D1 /* ErrorPublishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2921E27CCFF55004729D1 /* ErrorPublishable.swift */; };
 		A5C3A3D227C3F6F100A2C428 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D127C3F6F100A2C428 /* UserSession.swift */; };
 		A5C3A3D527C3F81400A2C428 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */; };
 		A5CACD7827C4A2A800D5EFA4 /* BackCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */; };
@@ -157,6 +163,12 @@
 		A5C2920E27CCBCBC004729D1 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		A5C2921027CCF40D004729D1 /* SearchHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewModel.swift; sourceTree = "<group>"; };
 		A5C2921227CCF594004729D1 /* SaveIngredientResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveIngredientResponder.swift; sourceTree = "<group>"; };
+		A5C2921427CCFBDA004729D1 /* StorageFavoriteBoardDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFavoriteBoardDataStore.swift; sourceTree = "<group>"; };
+		A5C2921627CCFD1B004729D1 /* FavoriteEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteEntity+Mapping.swift"; sourceTree = "<group>"; };
+		A5C2921827CCFD99004729D1 /* FavoriteBoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBoardRepository.swift; sourceTree = "<group>"; };
+		A5C2921A27CCFDFD004729D1 /* DefaultFavoriteBoardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFavoriteBoardRepository.swift; sourceTree = "<group>"; };
+		A5C2921C27CCFE83004729D1 /* FavoriteBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBoardViewModel.swift; sourceTree = "<group>"; };
+		A5C2921E27CCFF55004729D1 /* ErrorPublishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPublishable.swift; sourceTree = "<group>"; };
 		A5C3A3D127C3F6F100A2C428 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		A5C3A3D427C3F81400A2C428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A5CACD7627C4A00900D5EFA4 /* BackCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCameraView.swift; sourceTree = "<group>"; };
@@ -283,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				A570522927C52B0200131681 /* HistoryEntity+Mapping.swift */,
+				A5C2921627CCFD1B004729D1 /* FavoriteEntity+Mapping.swift */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -361,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				A5CACD9827C4E09C00D5EFA4 /* StorageSearchHistoryDataStore.swift */,
+				A5C2921427CCFBDA004729D1 /* StorageFavoriteBoardDataStore.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -371,6 +385,7 @@
 				A5CACDA127C4E12100D5EFA4 /* FakeRepositories */,
 				A5202FA427C3D77D003B6F3B /* DefaultPictureIngredientRepository.swift */,
 				A5CACD9527C4E03400D5EFA4 /* DefaultSearchHistoryRepository.swift */,
+				A5C2921A27CCFDFD004729D1 /* DefaultFavoriteBoardRepository.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -436,10 +451,12 @@
 		A5D0AAA727C3617E003E8681 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A5C2921E27CCFF55004729D1 /* ErrorPublishable.swift */,
 				A5D0AAAA27C361B3003E8681 /* PictureIngredientViewModel+Action.swift */,
 				A570523927C544A900131681 /* SearchIngredientViewModel+Action.swift */,
 				A5C2921027CCF40D004729D1 /* SearchHistoryViewModel.swift */,
 				A5C2921227CCF594004729D1 /* SaveIngredientResponder.swift */,
+				A5C2921C27CCFE83004729D1 /* FavoriteBoardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -449,6 +466,7 @@
 			children = (
 				A542AD7E27C3B8A600899B89 /* PictureIngredientRepository.swift */,
 				A5CACD9127C4DF4E00D5EFA4 /* SearchHistoryRepository.swift */,
+				A5C2921827CCFD99004729D1 /* FavoriteBoardRepository.swift */,
 				A5CACDA027C4E0FA00D5EFA4 /* Implementation */,
 			);
 			path = Repository;
@@ -796,13 +814,19 @@
 			files = (
 				A5CACD9627C4E03400D5EFA4 /* DefaultSearchHistoryRepository.swift in Sources */,
 				A570523527C52CD300131681 /* HistoryEntity+CoreDataClass.swift in Sources */,
+				A5C2921D27CCFE83004729D1 /* FavoriteBoardViewModel.swift in Sources */,
 				A570524527C552F500131681 /* SearchIngredientViewModel+Action.swift in Sources */,
 				A5202FA727C3D915003B6F3B /* Ingredient.swift in Sources */,
+				A5C2921527CCFBDA004729D1 /* StorageFavoriteBoardDataStore.swift in Sources */,
+				A5C2921727CCFD1B004729D1 /* FavoriteEntity+Mapping.swift in Sources */,
 				A542AD7427C38A3000899B89 /* NetworkError.swift in Sources */,
+				A5C2921927CCFD99004729D1 /* FavoriteBoardRepository.swift in Sources */,
 				A5202FAA27C3DA6E003B6F3B /* FakePictureIngredientRepository.swift in Sources */,
 				A570523627C52CDC00131681 /* HistoryEntity+CoreDataProperties.swift in Sources */,
 				A542AD7927C38B1500899B89 /* Token.swift in Sources */,
+				A5C2921F27CCFF55004729D1 /* ErrorPublishable.swift in Sources */,
 				A5CACD9227C4DF4E00D5EFA4 /* SearchHistoryRepository.swift in Sources */,
+				A5C2921B27CCFDFD004729D1 /* DefaultFavoriteBoardRepository.swift in Sources */,
 				A5CACD9E27C4E0E700D5EFA4 /* SearchHistoryDataStore.swift in Sources */,
 				A542AD7727C38AE200899B89 /* TokenUtil.swift in Sources */,
 				A5C2921127CCF40D004729D1 /* SearchHistoryViewModel.swift in Sources */,
