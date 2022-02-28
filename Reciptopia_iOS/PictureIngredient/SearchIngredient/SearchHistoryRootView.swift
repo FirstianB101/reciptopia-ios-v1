@@ -45,7 +45,7 @@ public final class SearchHistoryRootView: NiblessView {
   }
   
   private func observeViewModel() {
-    viewModel.$searchHistories
+    viewModel.reloadTrigger
       .receive(on: DispatchQueue.main)
       .sink { [weak self] _ in
         self?.historyTableView.reloadData()
@@ -73,10 +73,11 @@ extension SearchHistoryRootView: UITableViewDelegate, UITableViewDataSource {
   public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     let action = UIContextualAction(style: .destructive, title: "삭제") { [weak self] _, _, completionHandler in
       guard let strongSelf = self else { return }
-      strongSelf.viewModel.deleteHistory(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .bottom)
-      UINotificationFeedbackGenerator().notificationOccurred(.success)
-      completionHandler(true)
+      strongSelf.viewModel.deleteHistory(at: indexPath.row) {
+        tableView.deleteRows(at: [indexPath], with: .bottom)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        completionHandler(true)
+      }
     }
     let configuration = UISwipeActionsConfiguration(actions: [action])
     return configuration

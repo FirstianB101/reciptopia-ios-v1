@@ -17,6 +17,7 @@ public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
   // MARK: - Properties
   @Published public private(set) var searchHistories = [History]()
   public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
+  public let reloadTrigger = PassthroughSubject<Void, Never>()
   private var page = 0
   
   // MARK: - Methods
@@ -35,16 +36,17 @@ public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
     searchHistories = histories
   }
   
-  public func deleteHistory(at index: Int) {
+  public func deleteHistory(at index: Int, completion: @escaping () -> Void) {
     let history = searchHistories[index]
-    searchHistories.remove(at: index)
     
     searchHistoryRepository.delete(history)
-      .done { _ in self.fetchSearchHistory() }
-      .catch(publishError(_:))
+      .done { [weak self] _ in
+        self?.searchHistories.remove(at: index)
+        completion()
+      }.catch(publishError(_:))
   }
   
-  public func save(ingredients: [Ingredient]) {
+  public func saveIngredients(_ ingredients: [Ingredient]) {
     let ingredientsName = ingredients.map { $0.name }
     let history = History(id: nil, ingredients: ingredientsName)
     
@@ -55,5 +57,6 @@ public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
   
   private func appendSavedHistory(_ history: History) {
     searchHistories.append(history)
+    reloadTrigger.send(())
   }
 }
