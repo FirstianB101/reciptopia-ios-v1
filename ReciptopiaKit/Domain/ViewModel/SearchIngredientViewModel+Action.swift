@@ -22,7 +22,7 @@ public class SearchIngredientViewModel: ErrorPublishable {
   
   // MARK: - Properties
   @Published public private(set) var ingredients = [Ingredient]()
-  public let action = PassthroughSubject<SearchIngredientAction, Never>()
+  public let action = CurrentValueSubject<SearchIngredientAction, Never>(.history)
   public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
   
   // MARK: - Methods

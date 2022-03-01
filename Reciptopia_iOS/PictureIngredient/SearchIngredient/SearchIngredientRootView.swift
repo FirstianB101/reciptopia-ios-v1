@@ -15,6 +15,7 @@ public final class SearchIngredientRootView: NiblessView {
   // MARK: - Dependencies
   let viewModel: SearchIngredientViewModel
   let searchHistoryRootView: SearchHistoryRootView
+  let favoriteBoardRootView: FavoriteBoardRootView
   
   // MARK: - Properties
   var bag = Set<AnyCancellable>()
@@ -85,10 +86,12 @@ public final class SearchIngredientRootView: NiblessView {
   public init(
     frame: CGRect = .zero,
     viewModel: SearchIngredientViewModel,
-    searchHistoryRootView: SearchHistoryRootView
+    searchHistoryRootView: SearchHistoryRootView,
+    favoriteBoardRootView: FavoriteBoardRootView
   ) {
     self.viewModel = viewModel
     self.searchHistoryRootView = searchHistoryRootView
+    self.favoriteBoardRootView = favoriteBoardRootView
     super.init(frame: frame)
     bindViewModel()
   }
@@ -103,9 +106,30 @@ public final class SearchIngredientRootView: NiblessView {
   private func bindViewModel() {
     viewModel.$ingredients
       .receive(on: DispatchQueue.main)
-      .map { $0.isEmpty ? UIColor.gray.withAlphaComponent(0.2) : UIColor.accentColor }
-      .assign(to: \.backgroundColor, on: searchButton)
-      .store(in: &bag)
+      .sink { [weak self] ingredients in
+        self?.ingredientsCollectionView.reloadData()
+        self?.searchButton.isEnabledWithAlpha = !ingredients.isEmpty
+      }.store(in: &bag)
+    
+    viewModel.action
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] action in
+        switch action {
+          case .history: self?.presentSearchHistory()
+          case .favorite: self?.presentFavoriteBoard()
+          case .dismiss: break
+        }
+      }.store(in: &bag)
+  }
+  
+  private func presentSearchHistory() {
+    searchHistoryRootView.isHidden = false
+    favoriteBoardRootView.isHidden = true
+  }
+  
+  private func presentFavoriteBoard() {
+    searchHistoryRootView.isHidden = true
+    favoriteBoardRootView.isHidden = false
   }
   
   private func buildHierarchy() {
@@ -113,6 +137,7 @@ public final class SearchIngredientRootView: NiblessView {
     addSubview(ingredientsCollectionView)
     addSubview(historyAndFavoriteViewPager)
     addSubview(searchHistoryRootView)
+    addSubview(favoriteBoardRootView)
     addSubview(searchButton)
   }
   
@@ -120,8 +145,9 @@ public final class SearchIngredientRootView: NiblessView {
     activateConstraintsTitleStack()
     activateConstraintsIngredientCollectionView()
     activateConstraintsHistoryAndFavoriteViewPager()
-    activateConstraintsSearchButton()
     activateConstraintsSearchHistoryRootView()
+    activateConstraintsFavoriteBoardRootView()
+    activateConstraintsSearchButton()
   }
   
   private func addTargets() {
@@ -153,14 +179,14 @@ extension SearchIngredientRootView {
   private func activateConstraintsTitleStack() {
     titleStack.snp.makeConstraints { make in
       make.top.equalTo(safeAreaLayoutGuide)
-      make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(10)
+      make.leading.trailing.equalToSuperview().inset(10)
     }
   }
   
   private func activateConstraintsIngredientCollectionView() {
     ingredientsCollectionView.snp.makeConstraints { make in
       make.top.equalTo(titleStack.snp.bottom)
-      make.leading.trailing.equalTo(safeAreaLayoutGuide)
+      make.leading.trailing.equalToSuperview()
       make.height.equalTo(50)
     }
   }
@@ -168,8 +194,22 @@ extension SearchIngredientRootView {
   private func activateConstraintsHistoryAndFavoriteViewPager() {
     historyAndFavoriteViewPager.snp.makeConstraints { make in
       make.top.equalTo(ingredientsCollectionView.snp.bottom)
-      make.leading.trailing.equalTo(safeAreaLayoutGuide)
+      make.leading.trailing.equalToSuperview()
       make.height.equalTo(40)
+    }
+  }
+  
+  private func activateConstraintsSearchHistoryRootView() {
+    searchHistoryRootView.snp.makeConstraints { make in
+      make.top.equalTo(historyAndFavoriteViewPager.snp.bottom)
+      make.leading.bottom.trailing.equalToSuperview()
+    }
+  }
+  
+  private func activateConstraintsFavoriteBoardRootView() {
+    favoriteBoardRootView.snp.makeConstraints { make in
+      make.top.equalTo(historyAndFavoriteViewPager.snp.bottom)
+      make.leading.bottom.trailing.equalToSuperview()
     }
   }
   
@@ -177,13 +217,6 @@ extension SearchIngredientRootView {
     searchButton.snp.makeConstraints { make in
       make.trailing.equalTo(safeAreaLayoutGuide).inset(30)
       make.bottom.equalTo(safeAreaLayoutGuide).inset(10)
-    }
-  }
-  
-  private func activateConstraintsSearchHistoryRootView() {
-    searchHistoryRootView.snp.makeConstraints { make in
-      make.top.equalTo(historyAndFavoriteViewPager.snp.bottom)
-      make.leading.bottom.trailing.equalTo(safeAreaInsets)
     }
   }
 }
@@ -194,7 +227,6 @@ extension SearchIngredientRootView: UISearchBarDelegate {
     guard let text = searchBar.text else { return }
     viewModel.addIngredient(text)
     searchBar.text = ""
-    ingredientsCollectionView.reloadData()
   }
 }
 

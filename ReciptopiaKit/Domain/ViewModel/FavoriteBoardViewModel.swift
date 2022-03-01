@@ -16,11 +16,13 @@ public class FavoriteBoardViewModel: ErrorPublishable {
   private var page = 0
   
   // MARK: - Properties
+  @Published public private(set) var favorites = [Favorite]()
   public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
   
   // MARK: - Methods
   public init(favoriteBoardRepository: FavoriteBoardRepository) {
     self.favoriteBoardRepository = favoriteBoardRepository
+    fetchFavoriteBoards()
   }
   
   private func fetchFavoriteBoards() {
@@ -30,6 +32,16 @@ public class FavoriteBoardViewModel: ErrorPublishable {
   }
   
   private func sendFavoriteBoard(_ favorites: [Favorite]) {
-    
+    print(favorites)
+    self.favorites = favorites
+  }
+  
+  public func deleteFavorite(at index: Int, completion: @escaping () -> Void) {
+    let favorite = favorites[index]
+    favoriteBoardRepository.delete(favorite)
+      .done { [weak self] _ in
+        self?.favorites.remove(at: index)
+        completion()
+      }.catch(publishError(_:))
   }
 }

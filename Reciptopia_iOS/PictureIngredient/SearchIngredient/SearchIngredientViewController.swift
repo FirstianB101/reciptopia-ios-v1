@@ -15,6 +15,7 @@ public class SearchIngredientViewController: NiblessViewController {
   // MARK: - Dependencies
   let viewModel: SearchIngredientViewModel
   let searchHistoryRootView: SearchHistoryRootView
+  let favoriteBoardRootView: FavoriteBoardRootView
   
   // MARK: - Properties
   private var bag = Set<AnyCancellable>()
@@ -22,10 +23,12 @@ public class SearchIngredientViewController: NiblessViewController {
   // MARK: - Methods
   public init(
     viewModel: SearchIngredientViewModel,
-    searchHistoryRootView: SearchHistoryRootView
+    searchHistoryRootView: SearchHistoryRootView,
+    favoriteBoardRootView: FavoriteBoardRootView
   ) {
     self.viewModel = viewModel
     self.searchHistoryRootView = searchHistoryRootView
+    self.favoriteBoardRootView = favoriteBoardRootView
     super.init()
     observeViewModel()
   }
@@ -34,7 +37,8 @@ public class SearchIngredientViewController: NiblessViewController {
     super.viewDidLoad()
     view = SearchIngredientRootView(
       viewModel: viewModel,
-      searchHistoryRootView: searchHistoryRootView
+      searchHistoryRootView: searchHistoryRootView,
+      favoriteBoardRootView: favoriteBoardRootView
     )
   }
   
