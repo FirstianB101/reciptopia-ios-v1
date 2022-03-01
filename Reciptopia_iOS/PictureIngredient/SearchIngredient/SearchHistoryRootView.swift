@@ -74,7 +74,7 @@ extension SearchHistoryRootView: UITableViewDelegate, UITableViewDataSource {
     let action = UIContextualAction(style: .destructive, title: "삭제") { [weak self] _, _, completionHandler in
       guard let strongSelf = self else { return }
       strongSelf.viewModel.deleteHistory(at: indexPath.row) {
-        tableView.deleteRows(at: [indexPath], with: .bottom)
+        tableView.deleteRows(at: [indexPath], with: .fade)
         UINotificationFeedbackGenerator().notificationOccurred(.success)
         completionHandler(true)
       }
