@@ -9,7 +9,7 @@ import UIKit
 import Reciptopia_UIKit
 import SnapKit
 
-class SearchHistoryCell: UITableViewCell {
+internal class SearchHistoryCell: UITableViewCell {
   
   // MARK: - Properties
   static let reuseIdentifier = String(describing: SearchHistoryCell.self)
