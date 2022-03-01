@@ -22,4 +22,5 @@ extension UIColor {
   public static let collectionBackground = UIColor(0xE5E5E5)
   public static let mainIngredient = UIColor(0xEAAD11)
   public static let searchHistoryTint = UIColor(0xBEBEF0)
+  public static let favoriteStarTint = UIColor(0xEFDD3F)
 }
