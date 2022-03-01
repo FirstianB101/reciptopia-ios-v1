@@ -20,6 +20,12 @@ public final class DefaultSearchHistoryRepository: SearchHistoryRepository {
   
   public func fetch(_ page: Int) -> Promise<[History]> {
     return searchHistoryDataStore.fetch(page)
+      .then(sortSearchHistoryByRecentOrder(_:))
+  }
+  
+  private func sortSearchHistoryByRecentOrder(_ histories: [History]) -> Promise<[History]> {
+    let sortedHistories = histories.sorted { $0.id! > $1.id! }
+    return Promise.value(sortedHistories)
   }
   
   public func save(_ history: History) -> Promise<History> {
