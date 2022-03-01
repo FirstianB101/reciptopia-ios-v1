@@ -34,6 +34,7 @@ public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
   
   private func sendSearchHistories(_ histories: [History]) {
     searchHistories = histories
+    reloadTrigger.send(())
   }
   
   public func deleteHistory(at index: Int, completion: @escaping () -> Void) {
@@ -51,12 +52,8 @@ public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
     let history = History(id: nil, ingredients: ingredientsName)
     
     searchHistoryRepository.save(history)
-      .done(appendSavedHistory(_:))
-      .catch(publishError(_:))
-  }
-  
-  private func appendSavedHistory(_ history: History) {
-    searchHistories.append(history)
-    reloadTrigger.send(())
+      .done { [weak self] _ in
+        self?.fetchSearchHistory()
+      }.catch(publishError(_:))
   }
 }
