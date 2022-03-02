@@ -12,8 +12,14 @@ public final class TokenUtil {
   // MARK: - Properties
   static let shared = TokenUtil()
   
+  private var token: AuthToken?
+  
   // MARK: - Methods
   public func readToken() -> AuthToken? {
-    return "token"
+    return token
+  }
+  
+  public func registerToken(_ token: AuthToken) {
+    self.token = token
   }
 }
