@@ -7,7 +7,12 @@
 
 import Foundation
 
-public final class UserSession {
+public final class UserSession: Codable {
+  public let token: AuthToken
+  public let account: Account
   
-  
+  public init(token: AuthToken, account: Account) {
+    self.token = token
+    self.account = account
+  }
 }
