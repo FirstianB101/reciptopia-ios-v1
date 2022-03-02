@@ -13,6 +13,7 @@ public class ReciptopiaDependencyContainer {
   // MARK: - Properties
   private let sharedPictureIngredientRepository: PictureIngredientRepository
   private let sharedPictureIngredientViewModel: PictureIngredientViewModel
+  private let sharedUserSessionRepository: UserSessionRepository
   
   // MARK: - Methods
   public init() {
@@ -20,10 +21,28 @@ public class ReciptopiaDependencyContainer {
       return FakePictureIngredientRepository()
     }
     
+    func makeUserSessionDataStore() -> UserSessionDataStore {
+      return FileBasedUserSessionDataStore()
+    }
+    
+    func makeAuthRemoteAPI() -> AuthRemoteAPI {
+      return FakeAuthRemoteAPI()
+    }
+    
+    func makeUserSessionRepository() -> UserSessionRepository {
+      let userSessionDataStore = makeUserSessionDataStore()
+      let authRemoteAPI = makeAuthRemoteAPI()
+      return DefaultUserSessionRepository(
+        userSessionDataStore: userSessionDataStore,
+        authRemoteAPI: authRemoteAPI
+      )
+    }
+    
     self.sharedPictureIngredientRepository = makePictureIngredientRepository()
     self.sharedPictureIngredientViewModel = PictureIngredientViewModel(
       pictureIngredientRepository: sharedPictureIngredientRepository
     )
+    self.sharedUserSessionRepository = makeUserSessionRepository()
   }
   
   // picture ingredient
