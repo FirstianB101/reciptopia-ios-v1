@@ -11,8 +11,9 @@ import ReciptopiaKit
 public final class SearchIngredientDependencyContainer {
   
   // MARK: - Properties
-  private let sharedSearchHistoryViewModel: SearchHistoryViewModel
-  private let sharedFavoriteBoardViewModel: FavoriteBoardViewModel
+  private let sharedSearchIngredientViewModel: SearchIngredientViewModel
+  private let sharedSearchHistoryRepository: SearchHistoryRepository
+  private let sharedSearchBoardByIngredientUseCase: SearchBoardByIngredientUseCase
   
   // MARK: - Methods
   public init(superDependency: ReciptopiaDependencyContainer) {
@@ -26,53 +27,75 @@ public final class SearchIngredientDependencyContainer {
       return DefaultSearchHistoryRepository(searchHistoryDataStore: searchHistoryDataStore)
     }
     
-    func makeSearchHistoryViewModel() -> SearchHistoryViewModel {
-      let searchHistoryRepository = makeSearchHistoryRepository()
-      return SearchHistoryViewModel(searchHistoryRepository: searchHistoryRepository)
+    func makeSearchBoardByIngredientRepository() -> SearchBoardByIngredientRepository {
+      return FakeSearchBoardByIngredientRepository()
     }
     
-    // favorite board
-    func makeFavoriteBoardDataStore() -> FavoriteBoardDataStore {
-      return StorageFavoriteBoardDataStore()
-    }
+    self.sharedSearchHistoryRepository = makeSearchHistoryRepository()
     
-    func makeFavoriteBoardRepository() -> FavoriteBoardRepository {
-      let favoriteBoardDataStore = makeFavoriteBoardDataStore()
-      return DefaultFavoriteBoardRepository(favoriteBoardDataStore: favoriteBoardDataStore)
-    }
+    let searchBoardByIngredientRepository = makeSearchBoardByIngredientRepository()
+    self.sharedSearchBoardByIngredientUseCase = DefaultSearchBoardByIngredientUseCase(
+      searchBoardByIngredientRepository: searchBoardByIngredientRepository,
+      searchHistoryRepository: sharedSearchHistoryRepository
+    )
     
-    func makeFavoriteBoardViewModel() -> FavoriteBoardViewModel {
-      let favoriteBoardRepository = makeFavoriteBoardRepository()
-      return FavoriteBoardViewModel(favoriteBoardRepository: favoriteBoardRepository)
-    }
-    
-    self.sharedSearchHistoryViewModel = makeSearchHistoryViewModel()
-    self.sharedFavoriteBoardViewModel = makeFavoriteBoardViewModel()
+    self.sharedSearchIngredientViewModel = SearchIngredientViewModel(
+      searchBoardByIngredientUseCase: sharedSearchBoardByIngredientUseCase
+    )
   }
   
   // search ingredient
   func makeSearchIngredientViewController() -> SearchIngredientViewController {
-    let viewModel = makeSearchIngredientViewModel()
     let searchHistoryRootView = makeSearchHistoryRootView()
     let favoriteBoardRootView = makeFavoriteBoardRootView()
     return SearchIngredientViewController(
-      viewModel: viewModel,
+      viewModel: sharedSearchIngredientViewModel,
       searchHistoryRootView: searchHistoryRootView,
       favoriteBoardRootView: favoriteBoardRootView
     )
   }
   
-  func makeSearchIngredientViewModel() -> SearchIngredientViewModel {
-    return SearchIngredientViewModel(saveHistoryResponder: sharedSearchHistoryViewModel)
-  }
-  
   // search history
   func makeSearchHistoryRootView() -> SearchHistoryRootView {
-    return SearchHistoryRootView(viewModel: sharedSearchHistoryViewModel)
+    let searchHistoryViewModel = makeSearchHistoryViewModel()
+    return SearchHistoryRootView(viewModel: searchHistoryViewModel)
+  }
+  
+  func makeSearchHistoryViewModel() -> SearchHistoryViewModel {
+    return SearchHistoryViewModel(
+      searchHistoryRepository: sharedSearchHistoryRepository,
+      searchBoardByIngredientUseCase: sharedSearchBoardByIngredientUseCase,
+      fetchBoardResponder: sharedSearchIngredientViewModel
+    )
   }
   
   // favorite board
   func makeFavoriteBoardRootView() -> FavoriteBoardRootView {
-    return FavoriteBoardRootView(viewModel: sharedFavoriteBoardViewModel)
+    let favoriteBoardViewModel = makeFavoriteBoardViewModel()
+    return FavoriteBoardRootView(viewModel: favoriteBoardViewModel)
+  }
+  
+  func makeFavoriteBoardViewModel() -> FavoriteBoardViewModel {
+    let favoriteBoardRepository = makeFavoriteBoardRepository()
+    return FavoriteBoardViewModel(favoriteBoardRepository: favoriteBoardRepository)
+  }
+  
+  func makeFavoriteBoardRepository() -> FavoriteBoardRepository {
+    let favoriteBoardDataStore = makeFavoriteBoardDataStore()
+    return DefaultFavoriteBoardRepository(favoriteBoardDataStore: favoriteBoardDataStore)
+  }
+  
+  func makeFavoriteBoardDataStore() -> FavoriteBoardDataStore {
+    return StorageFavoriteBoardDataStore()
+  }
+  
+  // check ingredient
+  func makeCheckIngredientViewController(withIngredients ingredients: [Ingredient]) -> CheckIngredientViewController {
+    sharedSearchIngredientViewModel.setIngredients(ingredients)
+    let searchIngredientViewController = makeSearchIngredientViewController()
+    return CheckIngredientViewController(
+      viewModel: sharedSearchIngredientViewModel,
+      searchIngredientViewController: searchIngredientViewController
+    )
   }
 }

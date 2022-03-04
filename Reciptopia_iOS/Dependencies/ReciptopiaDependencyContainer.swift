@@ -57,7 +57,8 @@ public class ReciptopiaDependencyContainer {
     return PictureIngredientViewController(
       viewModel: sharedPictureIngredientViewModel,
       managePictureViewControllerFactory: managePictureViewControllerFactory,
-      searchIngredientViewControllerFactory: searchIngredientViewControllerFactory
+      searchIngredientViewControllerFactory: searchIngredientViewControllerFactory,
+      checkIngredientViewControllerFactory: makeCheckIngredientViewController(withIngredients:)
     )
   }
   
@@ -70,5 +71,11 @@ public class ReciptopiaDependencyContainer {
   func makeSearchIngredientViewController() -> SearchIngredientViewController {
     let searchIngredientDependency = SearchIngredientDependencyContainer(superDependency: self)
     return searchIngredientDependency.makeSearchIngredientViewController()
+  }
+  
+  // check ingredient (new dependency)
+  func makeCheckIngredientViewController(withIngredients ingredients: [Ingredient]) -> CheckIngredientViewController {
+    let searchIngredientDependency = SearchIngredientDependencyContainer(superDependency: self)
+    return searchIngredientDependency.makeCheckIngredientViewController(withIngredients: ingredients)
   }
 }
