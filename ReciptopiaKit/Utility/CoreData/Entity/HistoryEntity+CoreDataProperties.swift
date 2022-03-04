@@ -16,7 +16,7 @@ extension HistoryEntity {
     return NSFetchRequest<HistoryEntity>(entityName: "HistoryEntity")
   }
   
-  @NSManaged public var ingredients: [String]
+  @NSManaged public var ingredients: IngredientEntities
   @NSManaged public var id: Int64
 }
 

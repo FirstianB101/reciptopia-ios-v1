@@ -7,10 +7,10 @@
     </entity>
     <entity name="HistoryEntity" representedClassName="HistoryEntity" syncable="YES">
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="ingredients" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="ingredients" attributeType="Transformable" valueTransformerName="IngredientEntityValueTransformer"/>
     </entity>
     <elements>
-        <element name="FavoriteEntity" positionX="-54" positionY="-27" width="128" height="74"/>
-        <element name="HistoryEntity" positionX="-348.7578125" positionY="-26.8203125" width="128" height="73"/>
+        <element name="FavoriteEntity" positionX="-154.5" positionY="-23.5" width="128" height="88"/>
+        <element name="HistoryEntity" positionX="-454.7578125" positionY="19.6796875" width="128" height="59"/>
     </elements>
 </model>

@@ -9,6 +9,7 @@ import Foundation
 
 extension HistoryEntity {
   func toDomain() -> History {
-    return History(id: Int(id), ingredients: self.ingredients)
+    let ingredients = ingredients.toDomain()
+    return History(id: Int(id), ingredients: ingredients)
   }
 }
