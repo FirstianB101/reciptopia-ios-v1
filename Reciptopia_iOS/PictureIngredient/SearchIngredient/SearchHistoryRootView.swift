@@ -65,7 +65,7 @@ extension SearchHistoryRootView: UITableViewDelegate, UITableViewDataSource {
     ) as? SearchHistoryCell else { return UITableViewCell() }
     
     let ingredients = viewModel.searchHistories[indexPath.row].ingredients
-    cell.configureCell(ingredients)
+    cell.configureCell(ingredients.map { $0.name })
     
     return cell
   }
@@ -88,6 +88,6 @@ extension SearchHistoryRootView: UITableViewDelegate, UITableViewDataSource {
   }
   
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print(indexPath.row)
+    
   }
 }
