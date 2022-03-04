@@ -9,25 +9,29 @@ import Foundation
 import Combine
 import PromiseKit
 
-public enum SearchIngredientAction: Int {
-  case history = 0
-  case favorite = 1
+public enum SearchIngredientAction {
+  case presentBoardList(boards: [Board])
   case dismiss
 }
 
-public class SearchIngredientViewModel: ErrorPublishable {
+public class SearchIngredientViewModel: FetchBoardResponder, ErrorPublishable {
   
   // MARK: - Dependencies
-  let saveHistoryResponder: SaveIngredientResponder
+  let searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase
   
   // MARK: - Properties
   @Published public private(set) var ingredients = [Ingredient]()
-  public let action = CurrentValueSubject<SearchIngredientAction, Never>(.history)
+  public let view = CurrentValueSubject<SearchIngredientView, Never>(.history)
+  public let action = PassthroughSubject<SearchIngredientAction, Never>()
   public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
   
   // MARK: - Methods
-  public init(saveHistoryResponder: SaveIngredientResponder) {
-    self.saveHistoryResponder = saveHistoryResponder
+  public init(searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase) {
+    self.searchBoardByIngredientUseCase = searchBoardByIngredientUseCase
+  }
+  
+  public func setIngredients(_ ingredients: [Ingredient]) {
+    self.ingredients = ingredients
   }
   
   @objc public func removeIngredient(at index: Int) {
@@ -58,13 +62,21 @@ public class SearchIngredientViewModel: ErrorPublishable {
   }
   
   @objc public func searchByIngredients() {
-    saveHistoryResponder.saveIngredients(ingredients)
+    searchBoardByIngredientUseCase.searchBoard(byIngredients: ingredients)
+      .done(presentBoard(_:))
+      .catch(publishError(_:))
+  }
+  
+  public func presentBoard(_ boards: [Board]) {
     ingredients = []
+    action.send(.presentBoardList(boards: boards))
   }
   
   public func changeView(at segment: Int) {
-    guard let segment = SearchIngredientAction(rawValue: segment) else { return }
-    action.send(segment)
+    guard let segment = SearchIngredientView(rawValue: segment) else { return }
+    view.send(segment)
     print(segment)
   }
+  
+  
 }

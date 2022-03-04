@@ -68,8 +68,8 @@ public final class SearchIngredientRootView: NiblessView {
   
   lazy var historyAndFavoriteViewPager: PagingSegmentedControl = {
     let segmentedControl = PagingSegmentedControl()
-    let historySegment = SearchIngredientAction.history.rawValue
-    let favoriteSegment = SearchIngredientAction.favorite.rawValue
+    let historySegment = SearchIngredientView.history.rawValue
+    let favoriteSegment = SearchIngredientView.favorite.rawValue
     segmentedControl.insertSegment(withTitle: "검색 기록", at: historySegment, animated: false)
     segmentedControl.insertSegment(withTitle: "즐겨찾기", at: favoriteSegment, animated: false)
     segmentedControl.selectedSegmentIndex = historySegment
@@ -111,13 +111,12 @@ public final class SearchIngredientRootView: NiblessView {
         self?.searchButton.isEnabledWithAlpha = !ingredients.isEmpty
       }.store(in: &bag)
     
-    viewModel.action
+    viewModel.view
       .receive(on: DispatchQueue.main)
-      .sink { [weak self] action in
-        switch action {
+      .sink { [weak self] view in
+        switch view {
           case .history: self?.presentSearchHistory()
           case .favorite: self?.presentFavoriteBoard()
-          case .dismiss: break
         }
       }.store(in: &bag)
   }

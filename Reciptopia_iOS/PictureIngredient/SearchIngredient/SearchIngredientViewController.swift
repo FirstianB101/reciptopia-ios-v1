@@ -58,8 +58,14 @@ public class SearchIngredientViewController: NiblessViewController {
       .sink { [weak self] action in
         switch action {
           case .dismiss: self?.dismiss(animated: true)
-          default: break
+          case .presentBoardList(let boards): self?.presentBoards(boards)
         }
       }.store(in: &bag)
+  }
+  
+  public func presentBoards(_ boards: [Board]) {
+    let vc = BoardListViewController()
+    vc.modalTransitionStyle = .crossDissolve
+    present(vc, animated: true)
   }
 }
