@@ -9,10 +9,12 @@ import Foundation
 import Combine
 import PromiseKit
 
-public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
+public class SearchHistoryViewModel: ErrorPublishable {
   
   // MARK: - Dependencies
   let searchHistoryRepository: SearchHistoryRepository
+  let searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase
+  let fetchBoardResponder: FetchBoardResponder
   
   // MARK: - Properties
   @Published public private(set) var searchHistories = [History]()
@@ -21,8 +23,14 @@ public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
   private var page = 0
   
   // MARK: - Methods
-  public init(searchHistoryRepository: SearchHistoryRepository) {
+  public init(
+    searchHistoryRepository: SearchHistoryRepository,
+    searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase,
+    fetchBoardResponder: FetchBoardResponder
+  ) {
     self.searchHistoryRepository = searchHistoryRepository
+    self.searchBoardByIngredientUseCase = searchBoardByIngredientUseCase
+    self.fetchBoardResponder = fetchBoardResponder
     fetchSearchHistory()
   }
   
@@ -47,13 +55,12 @@ public class SearchHistoryViewModel: SaveIngredientResponder, ErrorPublishable {
       }.catch(publishError(_:))
   }
   
-  public func saveIngredients(_ ingredients: [Ingredient]) {
-    let ingredientsName = ingredients.map { $0.name }
-    let history = History(id: nil, ingredients: ingredientsName)
-    
-    searchHistoryRepository.save(history)
-      .done { [weak self] _ in
+  public func searchIngredientByHistory(at index: Int) {
+    let ingredients = searchHistories[index].ingredients
+    searchBoardByIngredientUseCase.searchBoard(byIngredients: ingredients)
+      .done { [weak self] boards in
         self?.fetchSearchHistory()
+        self?.fetchBoardResponder.presentBoard(boards)
       }.catch(publishError(_:))
   }
 }

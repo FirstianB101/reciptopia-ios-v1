@@ -32,7 +32,6 @@ public class FavoriteBoardViewModel: ErrorPublishable {
   }
   
   private func sendFavoriteBoard(_ favorites: [Favorite]) {
-    print(favorites)
     self.favorites = favorites
   }
   
