@@ -71,8 +71,8 @@ open class IngredientCell: UICollectionViewCell {
     super.didMoveToWindow()
     addSubview(contentStack)
     contentStack.translatesAutoresizingMaskIntoConstraints = false
-    contentStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 13).isActive = true
-    contentStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13).isActive = true
+    contentStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14).isActive = true
+    contentStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14).isActive = true
     contentStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
   }
   
