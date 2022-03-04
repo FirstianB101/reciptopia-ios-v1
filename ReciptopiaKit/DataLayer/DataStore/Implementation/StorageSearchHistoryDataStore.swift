@@ -48,14 +48,11 @@ public final class StorageSearchHistoryDataStore: SearchHistoryDataStore {
       if let entity = entity {
         let managedObject = NSManagedObject(entity: entity, insertInto: coreDataStorage.context)
         let id = newHistoryId
-        managedObject.setValue(history.ingredients, forKey: "ingredients")
+        let ingredientEntity = history.ingredients.map { $0.toEntity() }
         managedObject.setValue(id, forKey: "id")
-        do {
-          try coreDataStorage.context.save()
-          seal.fulfill(history)
-        } catch {
-          seal.reject(CoreDataError.saveError)
-        }
+        managedObject.setValue(ingredientEntity, forKey: "ingredients")
+        coreDataStorage.saveContext()
+        seal.fulfill(history)
       } else {
         seal.reject(CoreDataError.saveError)
       }
