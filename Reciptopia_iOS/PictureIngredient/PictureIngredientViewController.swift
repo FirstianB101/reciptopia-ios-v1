@@ -18,6 +18,7 @@ public class PictureIngredientViewController: NiblessViewController {
   let viewModel: PictureIngredientViewModel
   let makeManagePictureViewController: () -> ManagePictureViewController
   let makeSearchIngredientViewController: () -> SearchIngredientViewController
+  let makeCheckIngredientViewController: ([Ingredient]) -> CheckIngredientViewController
   
   // MARK: - Properties
   private var bag = Set<AnyCancellable>()
@@ -45,12 +46,16 @@ public class PictureIngredientViewController: NiblessViewController {
   }()
   
   // MARK: - Methods
-  public init(viewModel: PictureIngredientViewModel,
-              managePictureViewControllerFactory: @escaping () -> ManagePictureViewController,
-              searchIngredientViewControllerFactory: @escaping () -> SearchIngredientViewController) {
+  public init(
+    viewModel: PictureIngredientViewModel,
+    managePictureViewControllerFactory: @escaping () -> ManagePictureViewController,
+    searchIngredientViewControllerFactory: @escaping () -> SearchIngredientViewController,
+    checkIngredientViewControllerFactory: @escaping ([Ingredient]) -> CheckIngredientViewController
+  ) {
     self.viewModel = viewModel
     self.makeManagePictureViewController = managePictureViewControllerFactory
     self.makeSearchIngredientViewController = searchIngredientViewControllerFactory
+    self.makeCheckIngredientViewController = checkIngredientViewControllerFactory
     super.init()
     observeViewModel()
   }
@@ -95,25 +100,13 @@ public class PictureIngredientViewController: NiblessViewController {
       switch action {
         case .photoAlbum: strongSelf.presentPhotoAlbum()
         case .managePicture: strongSelf.presentManagePicture()
-        case .checkIngredients(let ingredients): print("present check \(ingredients).")
+        case .checkIngredients(let ingredients):
+          strongSelf.presentCheckIngredient(withIngredients: ingredients)
         case .community: print("present commnity.")
         case .search: strongSelf.presentSearchIngredient()
         case .notification: print("present notification.")
       }
     }.store(in: &bag)
-  }
-  
-  private func presentManagePicture() {
-    let managePictureViewController = makeManagePictureViewController()
-    navigationItem.backButtonTitle = ""
-    navigationController?.pushViewController(managePictureViewController, animated: true)
-  }
-  
-  private func presentSearchIngredient() {
-    let searchIngredientViewController = makeSearchIngredientViewController()
-    searchIngredientViewController.modalTransitionStyle = .crossDissolve
-    searchIngredientViewController.modalPresentationStyle = .currentContext
-    present(searchIngredientViewController, animated: true)
   }
   
   private func presentPhotoAlbum() {
@@ -123,6 +116,26 @@ public class PictureIngredientViewController: NiblessViewController {
     presentImagePicker(picker, select: nil, deselect: nil, cancel: nil, finish: { assets in
       self.appendImageByAsset(assets)
     })
+  }
+  
+  private func presentManagePicture() {
+    let managePictureViewController = makeManagePictureViewController()
+    navigationItem.backButtonTitle = ""
+    navigationController?.pushViewController(managePictureViewController, animated: true)
+  }
+  
+  private func presentCheckIngredient(withIngredients ingredients: [Ingredient]) {
+    let checkIngredientViewController = makeCheckIngredientViewController(ingredients)
+    checkIngredientViewController.modalTransitionStyle = .coverVertical
+    checkIngredientViewController.modalPresentationStyle = .fullScreen
+    present(checkIngredientViewController, animated: true)
+  }
+  
+  private func presentSearchIngredient() {
+    let searchIngredientViewController = makeSearchIngredientViewController()
+    searchIngredientViewController.modalTransitionStyle = .crossDissolve
+    searchIngredientViewController.modalPresentationStyle = .currentContext
+    present(searchIngredientViewController, animated: true)
   }
   
   private func appendImageByAsset(_ assets: [PHAsset]) {

@@ -88,6 +88,7 @@ public final class ManagePictureRootView: NiblessView {
       make.top.leading.trailing.equalTo(safeAreaLayoutGuide).inset(10)
       make.bottom.equalTo(analyzeButton.snp.top)
     }
+    
     analyzeButton.snp.makeConstraints { make in
       make.leading.trailing.equalTo(safeAreaLayoutGuide)
       make.bottom.equalToSuperview()
