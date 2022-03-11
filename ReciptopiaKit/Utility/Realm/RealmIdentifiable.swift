@@ -9,12 +9,12 @@ import Foundation
 import Realm
 import RealmSwift
 
-protocol RealmIdentifiable: AnyObject {
+protocol RealmIdentifiable: Object {
   var id: Int { get set }
   func incrementId()
 }
 
-extension RealmIdentifiable where Self: Object {
+extension RealmIdentifiable {
   func incrementId() {
     let realm = RealmUtil.shared.realm
     self.id = (realm.objects(Self.self).max(ofProperty: "id") as Int? ?? 0) + 1
