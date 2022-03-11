@@ -70,8 +70,12 @@ final class RealmUtil {
     }
   }
   
-  func delete(_ object: Object) -> Promise<Void> {
+  func delete(id: Int, ofType type: RealmIdentifiable.Type) -> Promise<Void> {
     return Promise<Void> { seal in
+      guard let object = realm.object(ofType: type.self, forPrimaryKey: id) else {
+        seal.reject(ReciptopiaError.deleteError)
+        return
+      }
       do {
         try realm.write {
           realm.delete(object)
@@ -80,18 +84,6 @@ final class RealmUtil {
       } catch {
         seal.reject(ReciptopiaError.deleteError)
       }
-    }
-  }
-  
-  func delete(_ indentifiable: RealmIdentifiable) -> Promise<Void> {
-    return Promise<Void> { seal in
-      guard let object = realm.object(ofType: RealmIdentifiable.self, forPrimaryKey: indentifiable.id) else {
-        seal.reject(ReciptopiaError.deleteError)
-        return
-      }
-      delete(object)
-        .done { seal.fulfill(()) }
-        .catch { _ in seal.reject(ReciptopiaError.deleteError) }
     }
   }
 }
