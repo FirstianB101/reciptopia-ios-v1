@@ -27,6 +27,10 @@ public extension Date {
         return toString(format: dateFormat.rawValue)
     }
   }
+  
+  static func timestamp() -> String {
+    return Date().toString(dateFormat: .iso8601)
+  }
 }
 
 public enum DateFormat: String {
