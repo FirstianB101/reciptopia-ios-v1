@@ -21,8 +21,8 @@ final class RealmUtil {
   
   var realm: Realm { localRealm }
   
-  func create(_ realmObject: Object) -> Promise<Object> {
-    return Promise<Object> { seal in
+  func create<T>(_ realmObject: T) -> Promise<T> where T: Object {
+    return Promise<T> { seal in
       do {
         try realm.write {
           realm.add(realmObject)
