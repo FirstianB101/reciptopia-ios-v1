@@ -22,9 +22,4 @@ public class HistoryRealmEntity: Object, RealmIdentifiable {
     self.incrementId()
     print("\(#function) -> id: \(id)")
   }
-  
-  func incrementId() {
-    let realm = RealmUtil.shared.realm
-    self.id = (realm.objects(Self.self).max(ofProperty: "id") as Int? ?? 0) + 1
-  }
 }

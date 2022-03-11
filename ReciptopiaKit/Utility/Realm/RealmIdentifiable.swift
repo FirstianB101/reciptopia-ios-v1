@@ -9,7 +9,14 @@ import Foundation
 import Realm
 import RealmSwift
 
-protocol RealmIdentifiable {
+protocol RealmIdentifiable: AnyObject {
   var id: Int { get set }
   func incrementId()
+}
+
+extension RealmIdentifiable where Self: Object {
+  func incrementId() {
+    let realm = RealmUtil.shared.realm
+    self.id = (realm.objects(Self.self).max(ofProperty: "id") as Int? ?? 0) + 1
+  }
 }

@@ -25,9 +25,4 @@ public class FavoriteRealmEntity: Object, RealmIdentifiable {
     self.boardTitle = boardTitle
     self.incrementId()
   }
-  
-  func incrementId() {
-    let realm = RealmUtil.shared.realm
-    self.id = (realm.objects(Self.self).max(ofProperty: "id") as Int? ?? 0) + 1
-  }
 }
