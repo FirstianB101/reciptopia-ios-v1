@@ -49,9 +49,13 @@ final class RealmUtil {
     }
   }
   
-  func update<T>(_ modifiedObject: T, updateHandler: (T) -> Void) -> Promise<Void> where T: RealmIdentifiable {
+  func update<T>(
+    id: Int,
+    forType type: T.Type,
+    updateHandler: (T) -> Void
+  ) -> Promise<Void> where T: RealmIdentifiable {
     return Promise<Void> { seal in
-      guard let previousObject = realm.object(ofType: T.self, forPrimaryKey: modifiedObject.id) else {
+      guard let previousObject = realm.object(ofType: T.self, forPrimaryKey: id) else {
         seal.reject(ReciptopiaError.updateError)
         return
       }
