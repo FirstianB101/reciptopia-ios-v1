@@ -16,9 +16,13 @@ public class HistoryRealmEntity: Object, RealmIdentifiable {
   @Persisted
   var ingredients = List<IngredientRealmEntity>()
   
-  public convenience init(ingredients: [IngredientRealmEntity]) {
+  @Persisted
+  var timestamp: String
+  
+  public convenience init(ingredients: [IngredientRealmEntity], timestamp: String) {
     self.init()
     self.ingredients.append(objectsIn: ingredients)
+    self.timestamp = timestamp
     self.incrementId()
     print("\(#function) -> id: \(id)")
   }

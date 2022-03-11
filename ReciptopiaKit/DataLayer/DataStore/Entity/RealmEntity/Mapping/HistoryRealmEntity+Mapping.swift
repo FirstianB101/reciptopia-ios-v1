@@ -13,7 +13,7 @@ extension HistoryRealmEntity {
       Ingredient(isMainIngredient: $0.isMainIngredient, name: $0.name, amount: $0.amount)
     }
     
-    return History(id: id, ingredients: ingredients)
+    return History(id: id, ingredients: ingredients, timestamp: timestamp)
   }
 }
 
@@ -22,6 +22,6 @@ extension History {
     let ingredients = ingredients.map {
       IngredientRealmEntity(name: $0.name, isMainIngredient: $0.isMainIngredient, amount: $0.amount)
     }
-    return HistoryRealmEntity(ingredients: ingredients)
+    return HistoryRealmEntity(ingredients: ingredients, timestamp: timestamp)
   }
 }

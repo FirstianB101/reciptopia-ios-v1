@@ -10,4 +10,5 @@ import Foundation
 public struct History {
   public let id: Int?
   public let ingredients: [Ingredient]
+  public let timestamp: String
 }
