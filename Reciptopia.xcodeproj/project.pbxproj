@@ -59,6 +59,15 @@
 		A570524427C54DE700131681 /* SearchIngredientRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570524327C54DE700131681 /* SearchIngredientRootView.swift */; };
 		A570524527C552F500131681 /* SearchIngredientViewModel+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570523927C544A900131681 /* SearchIngredientViewModel+Action.swift */; };
 		A5735B0527C3FBA5003D6C30 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5735B0427C3FBA5003D6C30 /* UIButtonExtension.swift */; };
+		A5811B3127DB85AD00F83F00 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A5811B3027DB85AD00F83F00 /* Cartfile */; };
+		A5811B3427DB85E200F83F00 /* Realm.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3227DB85E200F83F00 /* Realm.xcframework */; };
+		A5811B3527DB85E200F83F00 /* Realm.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3227DB85E200F83F00 /* Realm.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5811B3627DB85E200F83F00 /* RealmSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3327DB85E200F83F00 /* RealmSwift.xcframework */; };
+		A5811B3727DB85E200F83F00 /* RealmSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3327DB85E200F83F00 /* RealmSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5811B3827DB85E900F83F00 /* Realm.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3227DB85E200F83F00 /* Realm.xcframework */; };
+		A5811B3927DB85E900F83F00 /* Realm.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3227DB85E200F83F00 /* Realm.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5811B3A27DB85E900F83F00 /* RealmSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3327DB85E200F83F00 /* RealmSwift.xcframework */; };
+		A5811B3B27DB85E900F83F00 /* RealmSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5811B3327DB85E200F83F00 /* RealmSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A582C14527C4023E005B3469 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582C14427C4023E005B3469 /* UIColorExtension.swift */; };
 		A582C14827C40587005B3469 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A582C14727C40587005B3469 /* SnapKit */; };
 		A59DEE0E27CF244B00E05938 /* ReciptopiaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59DEE0D27CF244B00E05938 /* ReciptopiaError.swift */; };
@@ -136,6 +145,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A5811B3C27DB85E900F83F00 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A5811B3927DB85E900F83F00 /* Realm.xcframework in Embed Frameworks */,
+				A5811B3B27DB85E900F83F00 /* RealmSwift.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5F6A07027C2A38D009CDB05 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +164,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A5F6A07F27C2AF09009CDB05 /* Reciptopia_iOS.framework in Embed Frameworks */,
+				A5811B3527DB85E200F83F00 /* Realm.xcframework in Embed Frameworks */,
+				A5811B3727DB85E200F83F00 /* RealmSwift.xcframework in Embed Frameworks */,
 				A5F6A08F27C2AF1F009CDB05 /* Reciptopia_UIKit.framework in Embed Frameworks */,
 				A5F6A09F27C2AF2D009CDB05 /* ReciptopiaKit.framework in Embed Frameworks */,
 			);
@@ -202,6 +225,9 @@
 		A570524B27C55B8A00131681 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		A570524C27C55B8A00131681 /* History copy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "History copy.xcdatamodel"; sourceTree = "<group>"; };
 		A5735B0427C3FBA5003D6C30 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		A5811B3027DB85AD00F83F00 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		A5811B3227DB85E200F83F00 /* Realm.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Realm.xcframework; path = Carthage/Build/Realm.xcframework; sourceTree = "<group>"; };
+		A5811B3327DB85E200F83F00 /* RealmSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RealmSwift.xcframework; path = Carthage/Build/RealmSwift.xcframework; sourceTree = "<group>"; };
 		A582C14427C4023E005B3469 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A59DEE0D27CF244B00E05938 /* ReciptopiaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciptopiaError.swift; sourceTree = "<group>"; };
 		A59DEE1027CF268B00E05938 /* AuthRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteAPI.swift; sourceTree = "<group>"; };
@@ -260,6 +286,8 @@
 				A5F6A08E27C2AF1F009CDB05 /* Reciptopia_UIKit.framework in Frameworks */,
 				A5F6A09E27C2AF2D009CDB05 /* ReciptopiaKit.framework in Frameworks */,
 				A5CACD8027C4A44B00D5EFA4 /* SnapKit in Frameworks */,
+				A5811B3427DB85E200F83F00 /* Realm.xcframework in Frameworks */,
+				A5811B3627DB85E200F83F00 /* RealmSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +314,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A542AD6427C3729700899B89 /* PromiseKit in Frameworks */,
+				A5811B3A27DB85E900F83F00 /* RealmSwift.xcframework in Frameworks */,
+				A5811B3827DB85E900F83F00 /* Realm.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +655,7 @@
 		A5F69F1C27C29F63009CDB05 = {
 			isa = PBXGroup;
 			children = (
+				A5811B3027DB85AD00F83F00 /* Cartfile */,
 				A5F69F2727C29F63009CDB05 /* Reciptopia */,
 				A5F6A07927C2AF09009CDB05 /* Reciptopia_iOS */,
 				A5F6A08927C2AF1F009CDB05 /* Reciptopia_UIKit */,
@@ -659,6 +690,8 @@
 		A5F69F6927C2A0B4009CDB05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5811B3227DB85E200F83F00 /* Realm.xcframework */,
+				A5811B3327DB85E200F83F00 /* RealmSwift.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -805,6 +838,7 @@
 				A5F6A09427C2AF2D009CDB05 /* Sources */,
 				A5F6A09527C2AF2D009CDB05 /* Frameworks */,
 				A5F6A09627C2AF2D009CDB05 /* Resources */,
+				A5811B3C27DB85E900F83F00 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -876,6 +910,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5811B3127DB85AD00F83F00 /* Cartfile in Resources */,
 				A5F69F3527C29F64009CDB05 /* LaunchScreen.storyboard in Resources */,
 				A5F69F3227C29F64009CDB05 /* Assets.xcassets in Resources */,
 			);
