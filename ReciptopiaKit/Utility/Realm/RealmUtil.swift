@@ -34,9 +34,9 @@ final class RealmUtil {
     }
   }
   
-  func read(objectType: Object.Type) -> Promise<[Object]> {
-    return Promise<[Object]> { seal in
-      let objects = realm.objects(objectType.self)
+  func read<T>(objectType: T.Type) -> Promise<[T]> where T: Object {
+    return Promise<[T]> { seal in
+      let objects = realm.objects(T.self)
       seal.fulfill(Array(objects))
     }
   }
