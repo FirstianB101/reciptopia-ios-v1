@@ -86,4 +86,18 @@ final class RealmUtil {
       }
     }
   }
+  
+  func deleteAll(ofType type: Object.Type) -> Promise<Void> {
+    return Promise<Void> { seal in
+      let objects = realm.objects(type.self)
+      do {
+        try realm.write {
+          realm.delete(objects)
+          seal.fulfill(())
+        }
+      } catch {
+        seal.reject(ReciptopiaError.deleteError)
+      }
+    }
+  }
 }
