@@ -77,6 +77,4 @@ public class SearchIngredientViewModel: FetchBoardResponder, ErrorPublishable {
     view.send(segment)
     print(segment)
   }
-  
-  
 }
