@@ -12,4 +12,8 @@ public enum ReciptopiaError: Error {
   case decodeError
   case encodeError
   case accountNotFound
+  case createError
+  case fetchError
+  case updateError
+  case deleteError
 }
