@@ -13,7 +13,7 @@ public class SearchHistoryViewModel: ErrorPublishable {
   
   // MARK: - Dependencies
   let searchHistoryRepository: SearchHistoryRepository
-  let searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase
+  let searchBoardListUseCase: SearchBoardListUseCase
   let fetchBoardResponder: FetchBoardResponder
   
   // MARK: - Properties
@@ -25,11 +25,11 @@ public class SearchHistoryViewModel: ErrorPublishable {
   // MARK: - Methods
   public init(
     searchHistoryRepository: SearchHistoryRepository,
-    searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase,
+    searchBoardListUseCase: SearchBoardListUseCase,
     fetchBoardResponder: FetchBoardResponder
   ) {
     self.searchHistoryRepository = searchHistoryRepository
-    self.searchBoardByIngredientUseCase = searchBoardByIngredientUseCase
+    self.searchBoardListUseCase = searchBoardListUseCase
     self.fetchBoardResponder = fetchBoardResponder
     fetchSearchHistory()
   }
@@ -57,7 +57,7 @@ public class SearchHistoryViewModel: ErrorPublishable {
   
   public func searchIngredientByHistory(at index: Int) {
     let ingredients = searchHistories[index].ingredients
-    searchBoardByIngredientUseCase.searchBoard(byIngredients: ingredients)
+    searchBoardListUseCase.searchBoard(byIngredients: ingredients)
       .done { [weak self] boards in
         self?.fetchSearchHistory()
         self?.fetchBoardResponder.presentBoard(boards)
