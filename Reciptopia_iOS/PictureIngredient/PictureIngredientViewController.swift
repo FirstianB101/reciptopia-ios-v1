@@ -128,6 +128,10 @@ public class PictureIngredientViewController: NiblessViewController {
     let checkIngredientViewController = makeCheckIngredientViewController(ingredients)
     checkIngredientViewController.modalTransitionStyle = .coverVertical
     checkIngredientViewController.modalPresentationStyle = .fullScreen
+    
+    if navigationController?.visibleViewController is ManagePictureViewController {
+      navigationController?.popViewController(animated: true)
+    }
     present(checkIngredientViewController, animated: true)
   }
   
