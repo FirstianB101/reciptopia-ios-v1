@@ -13,7 +13,7 @@ public final class SearchIngredientDependencyContainer {
   // MARK: - Properties
   private let sharedSearchIngredientViewModel: SearchIngredientViewModel
   private let sharedSearchHistoryRepository: SearchHistoryRepository
-  private let sharedSearchBoardByIngredientUseCase: SearchBoardByIngredientUseCase
+  private let sharedSearchBoardListUseCase: SearchBoardListUseCase
   
   // MARK: - Methods
   public init(superDependency: ReciptopiaDependencyContainer) {
@@ -34,13 +34,13 @@ public final class SearchIngredientDependencyContainer {
     self.sharedSearchHistoryRepository = makeSearchHistoryRepository()
     
     let searchBoardByIngredientRepository = makeSearchBoardByIngredientRepository()
-    self.sharedSearchBoardByIngredientUseCase = DefaultSearchBoardByIngredientUseCase(
+    self.sharedSearchBoardListUseCase = DefaultSearchBoardListUseCase(
       searchBoardByIngredientRepository: searchBoardByIngredientRepository,
       searchHistoryRepository: sharedSearchHistoryRepository
     )
     
     self.sharedSearchIngredientViewModel = SearchIngredientViewModel(
-      searchBoardByIngredientUseCase: sharedSearchBoardByIngredientUseCase
+      searchBoardListUseCase: sharedSearchBoardListUseCase
     )
   }
   
@@ -64,7 +64,7 @@ public final class SearchIngredientDependencyContainer {
   func makeSearchHistoryViewModel() -> SearchHistoryViewModel {
     return SearchHistoryViewModel(
       searchHistoryRepository: sharedSearchHistoryRepository,
-      searchBoardByIngredientUseCase: sharedSearchBoardByIngredientUseCase,
+      searchBoardListUseCase: sharedSearchBoardListUseCase,
       fetchBoardResponder: sharedSearchIngredientViewModel
     )
   }

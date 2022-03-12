@@ -17,7 +17,7 @@ public enum SearchIngredientAction {
 public class SearchIngredientViewModel: FetchBoardResponder, ErrorPublishable {
   
   // MARK: - Dependencies
-  let searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase
+  let searchBoardListUseCase: SearchBoardListUseCase
   
   // MARK: - Properties
   @Published public private(set) var ingredients = [Ingredient]()
@@ -26,8 +26,8 @@ public class SearchIngredientViewModel: FetchBoardResponder, ErrorPublishable {
   public let alertPublisher = PassthroughSubject<AlertMessage, Never>()
   
   // MARK: - Methods
-  public init(searchBoardByIngredientUseCase: SearchBoardByIngredientUseCase) {
-    self.searchBoardByIngredientUseCase = searchBoardByIngredientUseCase
+  public init(searchBoardListUseCase: SearchBoardListUseCase) {
+    self.searchBoardListUseCase = searchBoardListUseCase
   }
   
   public func setIngredients(_ ingredients: [Ingredient]) {
@@ -62,7 +62,7 @@ public class SearchIngredientViewModel: FetchBoardResponder, ErrorPublishable {
   }
   
   @objc public func searchByIngredients() {
-    searchBoardByIngredientUseCase.searchBoard(byIngredients: ingredients)
+    searchBoardListUseCase.searchBoard(byIngredients: ingredients)
       .done(presentBoard(_:))
       .catch(publishError(_:))
   }

@@ -1,5 +1,5 @@
 //
-//  DefaultSearchBoardByIngredientUseCase.swift
+//  DefaultSearchBoardListUseCase.swift
 //  ReciptopiaKit
 //
 //  Created by 김세영 on 2022/03/03.
@@ -8,7 +8,7 @@
 import Foundation
 import PromiseKit
 
-public final class DefaultSearchBoardByIngredientUseCase: SearchBoardByIngredientUseCase {
+public final class DefaultSearchBoardListUseCase: SearchBoardListUseCase {
   
   // MARK: - Dependencies
   let searchBoardByIngredientRepository: SearchBoardByIngredientRepository
@@ -34,8 +34,7 @@ public final class DefaultSearchBoardByIngredientUseCase: SearchBoardByIngredien
   }
   
   private func saveHistory(_ ingredients: [Ingredient]) -> Promise<History> {
-    let history = History(id: nil, ingredients: ingredients)
-    
+    let history = History(id: nil, ingredients: ingredients, timestamp: Date.timestamp())
     return searchHistoryRepository.save(history)
   }
 }
