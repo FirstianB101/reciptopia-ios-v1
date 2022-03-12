@@ -9,6 +9,9 @@ import Foundation
 import PromiseKit
 
 public final class RealmSearchHistoryDataStore: SearchHistoryDataStore {
+  
+  public init() {}
+  
   public func fetch(_ page: Int) -> Promise<[History]> {
     return RealmUtil.shared.read(objectType: HistoryRealmEntity.self)
       .then(sortByTimestamp(_:))
