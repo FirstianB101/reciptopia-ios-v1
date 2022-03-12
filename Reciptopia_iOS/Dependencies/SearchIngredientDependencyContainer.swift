@@ -19,7 +19,7 @@ public final class SearchIngredientDependencyContainer {
   public init(superDependency: ReciptopiaDependencyContainer) {
     // search history
     func makeSearchHistoryDataStore() -> SearchHistoryDataStore {
-      return StorageSearchHistoryDataStore()
+      return RealmSearchHistoryDataStore()
     }
     
     func makeSearchHistoryRepository() -> SearchHistoryRepository {
@@ -86,7 +86,7 @@ public final class SearchIngredientDependencyContainer {
   }
   
   func makeFavoriteBoardDataStore() -> FavoriteBoardDataStore {
-    return StorageFavoriteBoardDataStore()
+    return RealmFavoriteBoardDataStore()
   }
   
   // check ingredient
