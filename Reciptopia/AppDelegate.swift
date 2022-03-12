@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   let dependencyContainer = ReciptopiaDependencyContainer()
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    IngredientEntityValueTransformer.registerTransformer()
     window = UIWindow(frame: UIScreen.main.bounds)
     
     let pictureIngredientViewController = dependencyContainer.makePictureIngredientViewController()
